@@ -200,3 +200,75 @@ body { margin-top:0 !important; }
   25% { opacity: 1; }
   100% { opacity: 1; }
 }
+
+
+/* Final welcome-page refinements */
+.wp-site-blocks > .wp-block-kubio-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  background: transparent !important;
+}
+
+/* Hide the original Kubio off-canvas/menu trigger and any stray white bar. */
+.wp-block-kubio-menu-offscreen,
+.wp-block-kubio-menu-offscreen__container,
+.wp-block-kubio-navigation > .resize-triggers,
+.wp-block-kubio-header > .resize-triggers {
+  background: transparent !important;
+}
+.wp-block-kubio-menu-offscreen {
+  display: none !important;
+}
+
+/* Mobile menu: black with 30% transparency. */
+.mobile-menu-panel {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+.mobile-menu-panel a {
+  color: #fff !important;
+}
+.mobile-menu-close {
+  color: #fff !important;
+}
+
+/* Keep both welcome messages exactly centered in the same position. */
+#hero .style-local-24-align {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100% !important;
+}
+#hero .welcome-title,
+#hero .welcome-intro {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: min(90vw, 900px) !important;
+  margin: 0 !important;
+}
+#hero .welcome-intro {
+  text-align: center !important;
+}
+
+/* Three-second fade-in and fade-out. */
+.welcome-title {
+  animation: welcomeTitle 6s ease-in-out forwards !important;
+}
+.welcome-intro {
+  animation: welcomeIntro 6s ease-in-out 3s forwards !important;
+}
+@keyframes welcomeTitle {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes welcomeIntro {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 1; }
+}
