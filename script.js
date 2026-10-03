@@ -17,15 +17,17 @@
     }, 10000);
   }
 
-  const hero = document.querySelector('.hero');
   const scrollButton = document.querySelector('.scroll-down');
 
-  if (scrollButton && hero) {
+  if (scrollButton) {
     scrollButton.addEventListener('click', () => {
-      const content = document.querySelector('#content');
-      if (content) {
-        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const pageHeight = window.innerHeight;
+
+      window.scrollBy({
+        top: pageHeight,
+        left: 0,
+        behavior: 'smooth'
+      });
     });
   }
 
