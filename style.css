@@ -188,24 +188,27 @@ body { margin-top:0 !important; }
 */
 .welcome-title {
   opacity: 0;
-  animation: welcomeTitle 4s ease-in-out forwards;
+  animation: welcomeTitle 6s ease-in-out 0s forwards;
 }
 
 .welcome-intro {
   opacity: 0;
-  animation: welcomeIntro 4s ease-in-out 3s forwards;
+  animation: welcomeIntro 6s ease-in-out 0s forwards;
 }
 
 @keyframes welcomeTitle {
   0% { opacity: 0; }
-  25% { opacity: 1; }
-  75% { opacity: 1; }
+  33.333% { opacity: 0; }
+  41.667% { opacity: 1; }
+  91.667% { opacity: 1; }
   100% { opacity: 0; }
 }
 
 @keyframes welcomeIntro {
   0% { opacity: 0; }
-  25% { opacity: 1; }
+  33.333% { opacity: 0; }
+  41.667% { opacity: 0; }
+  50% { opacity: 1; }
   100% { opacity: 1; }
 }
 
