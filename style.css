@@ -266,20 +266,151 @@ body { margin-top:0 !important; }
   text-align: center !important;
 }
 
-/* Three-second fade-in and fade-out. */
+/* Welcome text timing:
+   0–2s: wait
+   2–3s: "Welkom" fades in
+   3–7s: "Welkom" remains visible
+   7–8s: "Welkom" fades out while the introduction fades in
+*/
 .welcome-title {
-  animation: welcomeTitle 6s ease-in-out forwards !important;
+  animation: welcomeTitle 8s ease-in-out 0s forwards !important;
 }
 .welcome-intro {
-  animation: welcomeIntro 6s ease-in-out 3s forwards !important;
+  animation: welcomeIntro 8s ease-in-out 0s forwards !important;
 }
 @keyframes welcomeTitle {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
+  0%, 25% { opacity: 0; }
+  37.5% { opacity: 1; }
+  87.5% { opacity: 1; }
   100% { opacity: 0; }
 }
 @keyframes welcomeIntro {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
+  0%, 87.5% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* Mobile layout fixes */
+@media (max-width: 900px) {
+  html, body {
+    width: 100%;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .wp-site-blocks {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .wp-block-kubio-header {
+    position: absolute !important;
+    width: 100% !important;
+    z-index: 3000 !important;
+  }
+
+  /* Hide the desktop menu but keep the mobile menu button visible. */
+  .wp-block-kubio-menu-items {
+    display: none !important;
+  }
+
+  .wp-block-kubio-menu-offscreen,
+  .wp-block-kubio-menu-offscreen__container,
+  .wp-block-kubio-menu-offscreen__align,
+  .wp-block-kubio-menu-offscreen__iconWrapper {
+    display: flex !important;
+  }
+
+  .wp-block-kubio-menu-offscreen__iconWrapper {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 6px !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #fff !important;
+  }
+
+  .mobile-menu-toggle svg {
+    width: 30px !important;
+    height: 30px !important;
+    fill: currentColor !important;
+  }
+
+  /* Keep the mobile hero exactly within the visible viewport. */
+  #hero {
+    width: 100% !important;
+    min-height: 100svh !important;
+    height: 100svh !important;
+    overflow: hidden !important;
+  }
+
+  #hero .wp-block-kubio-hero__inner {
+    width: 100% !important;
+    min-height: 100svh !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 70px 18px 45px !important;
+  }
+
+  #hero .style-local-24-align {
+    width: 100% !important;
+    min-height: calc(100svh - 115px) !important;
+    height: 100% !important;
+  }
+
+  #hero .welcome-title,
+  #hero .welcome-intro {
+    left: 50% !important;
+    top: 50% !important;
+    width: min(88vw, 520px) !important;
+    max-width: 88vw !important;
+    box-sizing: border-box !important;
+  }
+
+  #hero .welcome-title {
+    font-size: clamp(2rem, 9vw, 2.8rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 3px !important;
+  }
+
+  #hero .welcome-intro {
+    font-size: clamp(.9rem, 3.8vw, 1.05rem) !important;
+    line-height: 1.55 !important;
+    letter-spacing: .5px !important;
+    padding: 0 4px !important;
+  }
+
+  .mobile-menu-panel {
+    width: min(320px, 82vw) !important;
+    max-width: 82vw !important;
+    height: 100dvh !important;
+    padding: 76px 24px 24px !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    background: rgba(0, 0, 0, .3) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .mobile-menu-panel a {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+  }
+
+  .mobile-menu-close {
+    color: #fff !important;
+    background: transparent !important;
+  }
 }
