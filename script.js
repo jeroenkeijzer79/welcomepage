@@ -1,15 +1,36 @@
 (function () {
-  // Standalone hero slideshow: 5 images, 10 seconds per slide.
+  // Standalone hero slideshow: each photo is shown for 10s,
+  // with a 3s cross-fade between photos.
   document.querySelectorAll('.kubio-slideshow').forEach(function(slideshow) {
     const slides = Array.from(slideshow.querySelectorAll('.slideshow-image'));
     if (slides.length < 2) return;
-    let index = slides.findIndex(s => s.classList.contains('current'));
-    if (index < 0) index = 0;
-    slides.forEach((s, i) => s.classList.toggle('current', i === index));
+
+    slides.forEach(function(slide) {
+      slide.classList.remove('current', 'next');
+      slide.style.opacity = '0';
+      slide.style.transition = 'opacity 3s ease-in-out';
+    });
+
+    let index = 0;
+    slides[index].style.opacity = '1';
+    slides[index].classList.add('current');
+
     setInterval(function() {
-      slides[index].classList.remove('current');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('current');
+      const nextIndex = (index + 1) % slides.length;
+
+      // Put the next image underneath the current one, then fade it in.
+      slides[nextIndex].style.zIndex = '2';
+      slides[index].style.zIndex = '1';
+      slides[nextIndex].style.opacity = '1';
+
+      // After the 3s cross-fade, reset the old image invisibly.
+      setTimeout(function() {
+        slides[index].style.opacity = '0';
+        slides[index].style.zIndex = '0';
+        slides[index].classList.remove('current');
+        slides[nextIndex].classList.add('current');
+        index = nextIndex;
+      }, 3000);
     }, 10000);
   });
 
