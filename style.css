@@ -75,7 +75,7 @@ body { margin-top:0 !important; }
   background-size:cover;
   background-repeat:no-repeat;
   opacity:0;
-  transition:opacity 1.4s ease-in-out !important;
+  transition:opacity 3s ease-in-out !important;
 }
 .kubio-slideshow .slideshow-image.current { opacity:1 !important; }
 .kubio-slideshow .slideshow-image.next { opacity:0 !important; }
