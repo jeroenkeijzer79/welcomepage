@@ -157,3 +157,46 @@ body { margin-top:0 !important; }
   font-family:"Bai Jamjuree", sans-serif;
   font-size:14px;
 }
+
+/* Remove the stray white navigation bar and keep the navigation transparent over the hero. */
+.wp-block-kubio-header,
+.wp-block-kubio-navigation,
+.wp-block-kubio-navigation-section__nav,
+.wp-block-kubio-navigation-items,
+.wp-block-kubio-navigation-items__outer,
+.wp-block-kubio-navigation-section__nav-section {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.wp-block-kubio-navigation .kubio-menu > ul > li > a,
+.wp-block-kubio-navigation .menu > li > a,
+.wp-block-kubio-logo__text {
+  color: #fff !important;
+}
+
+/* Welcome text sequence:
+   0–3s: "Welkom" fades in and remains visible.
+   3–4s: "Welkom" fades out while the introduction fades in.
+*/
+.welcome-title {
+  opacity: 0;
+  animation: welcomeTitle 4s ease-in-out forwards;
+}
+
+.welcome-intro {
+  opacity: 0;
+  animation: welcomeIntro 4s ease-in-out 3s forwards;
+}
+
+@keyframes welcomeTitle {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes welcomeIntro {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  100% { opacity: 1; }
+}
