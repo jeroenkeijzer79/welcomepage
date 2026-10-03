@@ -39,9 +39,11 @@ a { color: inherit; }
 }
 
 .site-logo {
-  font-family: Fraunces, Georgia, serif;
-  font-size: 24px;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -62,7 +64,12 @@ a { color: inherit; }
   background: transparent;
   text-decoration: none;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .desktop-nav a:hover,
@@ -229,17 +236,20 @@ a { color: inherit; }
 }
 
 .welcome-title {
-  font-family: Fraunces, Georgia, serif;
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 500;
-  letter-spacing: 5px;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+  font-size: 3.1em;
+  font-weight: 300;
+  letter-spacing: 10px;
+  text-transform: uppercase;
   animation: welcomeTitle 8s ease-in-out forwards;
 }
 
 .welcome-intro {
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
-  line-height: 1.65;
-  letter-spacing: .5px;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 3px;
   opacity: 0;
   animation: welcomeIntro 8s ease-in-out forwards;
 }
@@ -311,9 +321,10 @@ a { color: inherit; }
   width: min(100% - 40px, var(--max-content));
   margin: 0 auto;
   padding: 80px 0;
-  font-family: "Bai Jamjuree", sans-serif;
-  font-size: 17px;
-  line-height: 1.9;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 2.3;
 }
 
 .about-inner p {
@@ -337,7 +348,7 @@ a { color: inherit; }
   color: #555;
   background: #fff;
   text-align: center;
-  font-family: "Bai Jamjuree", sans-serif;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
