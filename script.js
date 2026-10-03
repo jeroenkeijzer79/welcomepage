@@ -1,66 +1,76 @@
 (function () {
-  // Standalone hero slideshow: each photo is shown for 10s,
-  // with a 3s cross-fade between photos.
-  document.querySelectorAll('.kubio-slideshow').forEach(function(slideshow) {
+  'use strict';
+
+  /* Hero slideshow: 10s display + 3s cross-fade. */
+  document.querySelectorAll('.kubio-slideshow').forEach(function (slideshow) {
     const slides = Array.from(slideshow.querySelectorAll('.slideshow-image'));
     if (slides.length < 2) return;
 
-    slides.forEach(function(slide) {
+    let index = 0;
+
+    slides.forEach(function (slide, i) {
       slide.classList.remove('current', 'next');
-      slide.style.opacity = '0';
       slide.style.transition = 'opacity 3s ease-in-out';
+      slide.style.zIndex = i === 0 ? '2' : '0';
+      slide.style.setProperty('opacity', i === 0 ? '1' : '0', 'important');
     });
 
-    let index = 0;
-    slides[index].style.opacity = '1';
-    slides[index].classList.add('current');
+    slides[0].classList.add('current');
 
-    setInterval(function() {
+    setInterval(function () {
+      const current = slides[index];
       const nextIndex = (index + 1) % slides.length;
+      const next = slides[nextIndex];
 
-      // Put the next image underneath the current one, then fade it in.
-      slides[nextIndex].style.zIndex = '2';
-      slides[index].style.zIndex = '1';
-      slides[nextIndex].style.opacity = '1';
+      next.style.zIndex = '2';
+      next.style.setProperty('opacity', '0', 'important');
 
-      // After the 3s cross-fade, reset the old image invisibly.
-      setTimeout(function() {
-        slides[index].style.opacity = '0';
-        slides[index].style.zIndex = '0';
-        slides[index].classList.remove('current');
-        slides[nextIndex].classList.add('current');
+      // Force the browser to register opacity: 0 before starting the fade.
+      void next.offsetWidth;
+
+      next.style.setProperty('opacity', '1', 'important');
+      current.style.zIndex = '1';
+
+      setTimeout(function () {
+        current.style.setProperty('opacity', '0', 'important');
+        current.style.zIndex = '0';
+        current.classList.remove('current');
+        next.classList.add('current');
         index = nextIndex;
       }, 3000);
     }, 10000);
   });
 
-  // Down arrow scrolls to the content below the hero.
-  document.querySelectorAll('[data-kubio-component="downarrow"]').forEach(function(arrow) {
+  /* Scroll arrow. */
+  document.querySelectorAll('[data-kubio-component="downarrow"]').forEach(function (arrow) {
     arrow.style.cursor = 'pointer';
-    arrow.addEventListener('click', function() {
+    arrow.addEventListener('click', function () {
       const content = document.querySelector('.entry-content');
-      if (content) content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (content) {
+        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
-  // Simple standalone mobile menu.
+  /* Standalone mobile menu. */
   const panel = document.getElementById('mobile-panel');
   const backdrop = document.getElementById('mobile-backdrop');
+  const header = document.querySelector('.wp-block-kubio-header');
+
+  if (!panel || !backdrop || !header) return;
+
   const openBtn = document.createElement('button');
   openBtn.className = 'mobile-menu-toggle';
+  openBtn.type = 'button';
   openBtn.setAttribute('aria-label', 'Menu openen');
   openBtn.innerHTML = '<svg viewBox="0 0 512 512" aria-hidden="true"><path d="M64 144h384v32H64zm0 128h384v32H64zm0 128h384v32H64z"/></svg>';
 
-  const header = document.querySelector('.wp-block-kubio-header');
-  if (header) {
-    const candidates = header.querySelectorAll('.wp-block-kubio-menu-offscreen__iconWrapper, [data-kubio-component="offcanvas"]');
-    if (candidates.length) {
-      const original = candidates[candidates.length - 1];
-      original.innerHTML = '';
-      original.appendChild(openBtn);
-    } else {
-      header.appendChild(openBtn);
-    }
+  const target = header.querySelector('.wp-block-kubio-menu-offscreen__iconWrapper, [data-kubio-component="offcanvas"]');
+  if (target) {
+    target.innerHTML = '';
+    target.appendChild(openBtn);
+  } else {
+    header.appendChild(openBtn);
   }
 
   function closeMenu() {
@@ -68,12 +78,17 @@
     backdrop.classList.remove('open');
   }
 
-  openBtn.addEventListener('click', function() {
+  openBtn.addEventListener('click', function () {
     panel.classList.add('open');
     backdrop.classList.add('open');
   });
 
-  panel.querySelector('.mobile-menu-close').addEventListener('click', closeMenu);
+  const closeButton = panel.querySelector('.mobile-menu-close');
+  if (closeButton) closeButton.addEventListener('click', closeMenu);
+
   backdrop.addEventListener('click', closeMenu);
-  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  panel.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
 })();
