@@ -165,8 +165,16 @@ body { margin-top:0 !important; }
 .wp-block-kubio-navigation-items,
 .wp-block-kubio-navigation-items__outer,
 .wp-block-kubio-navigation-section__nav-section {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Title and navigation bar: black with 30% transparency */
+.wp-block-kubio-header,
+.wp-block-kubio-header > .wp-block-kubio-navigation,
+.wp-block-kubio-navigation {
+  background: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
 .wp-block-kubio-navigation .kubio-menu > ul > li > a,
 .wp-block-kubio-navigation .menu > li > a,
@@ -225,7 +233,7 @@ body { margin-top:0 !important; }
 
 /* Mobile menu: black with 30% transparency. */
 .mobile-menu-panel {
-  background: rgba(0, 0, 0, 0.7) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
 }
 .mobile-menu-panel a {
   color: #fff !important;
