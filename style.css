@@ -260,39 +260,46 @@ a { color: inherit; }
   left: 50%;
   bottom: 28px;
   z-index: 3;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   padding: 0;
   border: 0;
   background: transparent;
   transform: translateX(-50%);
   cursor: pointer;
+  display: grid;
+  place-items: center;
 }
 
 .scroll-down::before,
-.scroll-down::after,
-.scroll-down span {
+.scroll-down::after {
   position: absolute;
-  left: 50%;
-  width: 16px;
+  top: 14px;
+  width: 18px;
   height: 2px;
+  border-radius: 2px;
   background: #222;
   content: "";
 }
 
 .scroll-down::before {
-  top: 12px;
-  transform: translateX(-7px) rotate(45deg);
+  left: 5px;
+  transform: rotate(45deg);
 }
 
 .scroll-down::after {
-  top: 12px;
-  transform: translateX(-9px) rotate(-45deg);
+  right: 5px;
+  transform: rotate(-45deg);
 }
 
-.scroll-down span {
-  top: 22px;
-  transform: translateX(-50%);
+.scroll-down:hover {
+  transform: translateX(-50%) translateY(3px);
+}
+
+.scroll-down:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 5px;
+  border-radius: 50%;
 }
 
 .about {
