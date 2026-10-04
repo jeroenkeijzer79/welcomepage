@@ -207,6 +207,8 @@ a { color: inherit; }
   text-decoration: none;
   font-family: "Bai Jamjuree", sans-serif;
   font-size: 17px;
+  font-variant: small-caps;
+  letter-spacing: 2px;
 }
 
 .menu-close {
