@@ -158,7 +158,7 @@ a { color: inherit; }
   display: block;
   height: 2px;
   margin: 6px 0;
-  background: currentColor;
+  background: #fff;
 }
 
 .mobile-backdrop {
