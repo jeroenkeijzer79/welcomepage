@@ -100,6 +100,24 @@
     }
   });
 
+  // Markeer de actieve pagina in de desktopnavigatie.
+  const currentNavPath = window.location.pathname.replace(/\\/$/, '') || '/';
+  document.querySelectorAll('.desktop-nav > a, .desktop-nav > .nav-dropdown > button').forEach((item) => {
+    item.classList.remove('active');
+  });
+  document.querySelectorAll('.desktop-nav > a').forEach((link) => {
+    const target = new URL(link.href, window.location.href).pathname.replace(/\\/$/, '') || '/';
+    if (target === currentNavPath) link.classList.add('active');
+  });
+  const dropdownLinks = document.querySelectorAll('.nav-dropdown-menu a');
+  const dropdownIsActive = [...dropdownLinks].some((link) => {
+    const target = new URL(link.href, window.location.href).pathname.replace(/\\/$/, '') || '/';
+    return target === currentNavPath;
+  });
+  if (dropdownIsActive) {
+    document.querySelector('.nav-dropdown > button')?.classList.add('active');
+  }
+
   const loadContent = async () => {
     const targets = [
       ['home-hero-content', './content/home.html', 'hero-content'],
