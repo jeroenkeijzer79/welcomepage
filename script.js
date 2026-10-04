@@ -6,7 +6,8 @@
       ['home-hero-content', './content/home.html', 'hero-content'],
       ['home-about-content', './content/home.html', 'about-inner'],
       ['contact-content', './content/contact.html', 'contact-inner'],
-      ['instagram-content', './content/instagram.html', 'instagram-inner']
+      ['instagram-content', './content/instagram.html', 'instagram-inner'],
+      ['request-content', './content/aanvraag.html', 'request-inner']
     ];
 
     await Promise.all(targets.map(async ([id, url, className]) => {
