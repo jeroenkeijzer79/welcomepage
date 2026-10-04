@@ -140,35 +140,8 @@
   </main>
 
   <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import { getFirestore, collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-import { firebaseConfig } from "https://jeroenkeijzer79.github.io/Agenda/firebase-config.js";
-import { showAgendaMap } from "https://jeroenkeijzer79.github.io/Agenda/map.js";
+<script type="module" src="https://jeroenkeijzer79.github.io/Agenda/embed.js?v=7"></script>
 
-const db=getFirestore(initializeApp(firebaseConfig));
-const list=document.getElementById("event-list"), futureOnly=document.getElementById("future-only");
-const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""\\"":"&quot;","'":"&#039;"}[c]));
-const fmt=d=>{const x=new Date(d+"T12:00:00");return{day:x.toLocaleDateString("nl-NL",{day:"2-digit"}),month:x.toLocaleDateString("nl-NL",{month:"short"}).replace(".","").toUpperCase()};};
-const isPast=e=>e.date&&new Date(e.date+"T"+(e.time||"23:59")+":00")<new Date();
-let allEvents=[];
-
-function render(){
- const upcoming=allEvents.filter(e=>!isPast(e)).sort((a,b)=>(a.date||"").localeCompare(b.date||"")||(a.time||"").localeCompare(b.time||""));
- const past=allEvents.filter(e=>isPast(e)).sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.time||"").localeCompare(a.time||""));
- if(!upcoming.length&&(!past.length||futureOnly.checked)){list.innerHTML='<div class="message">Geen optredens gepland.</div>';return;}
- const item=e=>{const f=fmt(e.date),p=isPast(e),details=!!(e.description||e.url||e.imageUrl);return '<article class="event'+(p?' past':'')+'"><div class="event-date"><span class="event-day">'+esc(f.day)+'</span><span class="event-month">'+esc(f.month)+'</span></div><div class="event-thumb">'+(e.imageUrl?'<img src="'+esc(e.imageUrl)+'" alt="" loading="lazy">':'')+'</div><div class="event-main"><div class="event-time">'+esc(e.time||"")+'</div><p class="event-name">'+esc(e.name||"")+'</p><p class="event-location">'+esc(e.location||"")+(e.place?' · '+esc(e.place):"")+'</p></div>'+(details?'<button class="event-expand" type="button" aria-expanded="false" aria-label="Meer informatie tonen"><span class="event-arrow">⌄</span></button><div class="event-details" hidden><div class="event-details-inner">'+(e.imageUrl?'<img class="event-image" src="'+esc(e.imageUrl)+'" alt="" loading="lazy">':"")+(e.description?'<div class="event-description">'+esc(e.description).replace(/\n/g,"<br>")+'</div>':"")+(e.url?'<a class="event-link" href="'+esc(e.url)+'" target="_blank" rel="noopener">Meer informatie ↗</a>':"")+'</div></div>':"")+'</article>';};
- let sections=[];
- if(upcoming.length)sections.push('<section class="event-section"><h2 class="event-section-title">Aankomende optredens</h2><div class="event-list">'+upcoming.map(item).join("")+'</div></section>');
- if(!futureOnly.checked&&past.length)sections.push('<section class="event-section past-section"><h2 class="event-section-title">Optredens die geweest zijn</h2><div class="event-list">'+past.map(item).join("")+'</div></section>');
- list.innerHTML=sections.join("");
- list.querySelectorAll(".event-expand").forEach(b=>b.addEventListener("click",()=>{const d=b.parentElement.querySelector(".event-details"),a=b.querySelector(".event-arrow"),open=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",String(open));a.textContent=open?"⌃":"⌄";if(open){d.hidden=false;d.style.maxHeight="0px";d.style.opacity="0";requestAnimationFrame(()=>{d.style.maxHeight=d.scrollHeight+"px";d.style.opacity="1";});d.addEventListener("transitionend",function h(){if(b.getAttribute("aria-expanded")==="true")d.style.maxHeight="none";d.removeEventListener("transitionend",h);});}else{d.style.maxHeight=d.scrollHeight+"px";requestAnimationFrame(()=>{d.style.maxHeight="0px";d.style.opacity="0";});d.addEventListener("transitionend",function h(){if(b.getAttribute("aria-expanded")==="false")d.hidden=true;d.removeEventListener("transitionend",h);});}}));
-}
-document.getElementById("show-map").addEventListener("click",async()=>{const p=document.getElementById("agenda-map-panel");p.hidden=false;await showAgendaMap(document.getElementById("agenda-map"),allEvents);});
-document.getElementById("close-map").addEventListener("click",()=>document.getElementById("agenda-map-panel").hidden=true);
-futureOnly.addEventListener("change",render);
-onSnapshot(query(collection(db,"optredens"),orderBy("date")),snap=>{allEvents=snap.docs.map(d=>({id:d.id,...d.data()}));render();},err=>{console.error("Agenda load error:",err);list.innerHTML='<div class="message">Agenda kon niet worden geladen.</div>';});
-</script>
   <script src="script.js"></script>
 </body>
 </html>
