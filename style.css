@@ -94,7 +94,7 @@ a { color: inherit; }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -9px;
+  bottom: -1px;
   height: 2px;
   background: #fff;
   content: "";
