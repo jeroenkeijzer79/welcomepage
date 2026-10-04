@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Foto's en Instagram-berichten van Jeroen & Irene | Zang & Piano.">
+  <meta name="description" content="Foto's en video's van Jeroen & Irene | Zang & Piano op Instagram.">
   <title>Foto & Video | Jeroen & Irene</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +33,7 @@
     }
 
     .instagram-intro {
-      margin: 0 0 38px;
+      margin: 0 0 34px;
       color: #666;
       text-align: center;
       font-size: 16px;
@@ -41,62 +41,28 @@
       line-height: 1.7;
     }
 
-    .instagram-feed {
-      display: grid;
-      gap: 34px;
-    }
-
-    .instagram-post {
-      overflow: hidden;
-      border: 1px solid #e7e7e7;
-      background: #fff;
-    }
-
-    .instagram-post-link {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .instagram-post-image {
-      display: block;
+    .instagram-profile {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
     }
 
-    .instagram-post-meta {
-      padding: 15px 18px 17px;
+    .instagram-profile blockquote {
+      margin: 0 auto !important;
     }
 
-    .instagram-post-date {
-      color: #777;
-      font-size: 14px;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
-
-    .instagram-post-caption {
-      margin: 7px 0 0;
-      color: #333;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.7;
-      white-space: pre-line;
-      overflow-wrap: anywhere;
-    }
-
-    .instagram-status {
-      padding: 35px 10px;
-      color: #777;
+    .instagram-fallback {
+      margin-top: 24px;
       text-align: center;
-      font-size: 16px;
+      color: #777;
+      font-size: 15px;
       font-weight: 300;
     }
 
-    .instagram-status.is-error {
-      color: #999;
+    .instagram-fallback a {
+      color: #222;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     @media (max-width: 900px) {
@@ -112,14 +78,6 @@
       .instagram-intro {
         font-size: 15px;
         margin-bottom: 28px;
-      }
-
-      .instagram-feed {
-        gap: 24px;
-      }
-
-      .instagram-post-meta {
-        padding: 13px 14px 15px;
       }
     }
   </style>
@@ -163,72 +121,27 @@
   <main class="instagram-main">
     <div class="instagram-inner">
       <h1>Foto &amp; Video</h1>
-      <p class="instagram-intro">De nieuwste berichten van Jeroen &amp; Irene op Instagram.</p>
-      <div id="instagram-feed" class="instagram-feed" aria-live="polite">
-        <div class="instagram-status">Instagram-berichten worden geladen…</div>
+      <p class="instagram-intro">Bekijk de nieuwste foto's en video's van Jeroen &amp; Irene op Instagram.</p>
+
+      <div class="instagram-profile">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/jeroenirene/"
+          data-instgrm-version="14"
+          style="background:#FFF; border:0; border-radius:0; box-shadow:none; margin:1px; max-width:540px; min-width:326px; padding:0; width:calc(100% - 2px);">
+        </blockquote>
       </div>
+
+      <p class="instagram-fallback">
+        Werkt Instagram niet in deze weergave?
+        <a href="https://www.instagram.com/jeroenirene/" target="_blank" rel="noopener noreferrer">Bekijk @jeroenirene rechtstreeks op Instagram</a>.
+      </p>
     </div>
   </main>
 
   <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
 
+  <script async src="https://www.instagram.com/embed.js"></script>
   <script src="script.js"></script>
-  <script>
-    const feed = document.getElementById('instagram-feed');
-
-    const formatDate = (value) => {
-      const date = new Date(value);
-      return new Intl.DateTimeFormat('nl-NL', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      }).format(date);
-    };
-
-    const escapeHtml = (value) => {
-      const div = document.createElement('div');
-      div.textContent = value || '';
-      return div.innerHTML;
-    };
-
-    const loadInstagram = async () => {
-      try {
-        const response = await fetch('instagram-feed.json', { cache: 'no-store' });
-        if (!response.ok) throw new Error('Feed niet beschikbaar');
-
-        const posts = await response.json();
-
-        if (!Array.isArray(posts) || posts.length === 0) {
-          feed.innerHTML = '<div class="instagram-status">Er zijn nog geen Instagram-berichten beschikbaar.</div>';
-          return;
-        }
-
-        feed.innerHTML = posts.map((post) => {
-          const image = post.media_url || post.thumbnail_url || '';
-          if (!image) return '';
-
-          return `
-            <article class="instagram-post">
-              <a class="instagram-post-link" href="${escapeHtml(post.permalink || 'https://www.instagram.com/jeroenirene/')}" target="_blank" rel="noopener noreferrer">
-                <img class="instagram-post-image" src="${escapeHtml(image)}" alt="Instagram-bericht van Jeroen & Irene" loading="lazy">
-                <div class="instagram-post-meta">
-                  <div class="instagram-post-date">${escapeHtml(formatDate(post.timestamp))}</div>
-                  ${post.caption ? `<p class="instagram-post-caption">${escapeHtml(post.caption)}</p>` : ''}
-                </div>
-              </a>
-            </article>
-          `;
-        }).join('');
-
-        if (!feed.innerHTML.trim()) {
-          feed.innerHTML = '<div class="instagram-status">Er zijn geen foto’s beschikbaar om te tonen.</div>';
-        }
-      } catch (error) {
-        feed.innerHTML = '<div class="instagram-status is-error">De Instagram-berichten kunnen momenteel niet worden geladen.</div>';
-      }
-    };
-
-    loadInstagram();
-  </script>
 </body>
 </html>
