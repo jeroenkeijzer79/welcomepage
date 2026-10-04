@@ -198,6 +198,20 @@
     updateHeader();
   }
 
+  // Scrollknoppen op de Over-pagina.
+  document.querySelectorAll('[data-scroll-target]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-scroll-target');
+      const target = targetId ? document.getElementById(targetId) : null;
+      if (!target) return;
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  });
+
   const menuToggle = document.querySelector('.menu-toggle');
   const menuClose = document.querySelector('.menu-close');
   const mobilePanel = document.querySelector('.mobile-panel');
