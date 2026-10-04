@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Manrope%3A300%2C300italic%2C400%2C400italic%2C500%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7CBai+Jamjuree%3A200%2C300%2C400%2C400italic%2C500%2C700%2C700italic&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="over-page">
   <header class="site-header">
@@ -45,18 +45,26 @@
   </nav>
 
   <main class="over-main">
-    <section class="over-inner">
-      <h1>Over</h1>
-
-      <article class="over-person">
-        <h2>IRENE</h2>
+    <section class="over-person over-person--irene" id="irene" aria-labelledby="irene-title">
+      <div class="over-person-inner">
+        <h1 id="irene-title">IRENE</h1>
         <p>Irene Roelofs (2000) groeide op in Borne. Na in 2025 als orthopedagoog in Nijmegen afgestudeerd te zijn, woont Irene weer in het vertrouwde Borne. Irene leeft voor muziek, zowel om op te dansen, als soms een beetje piano te spelen, maar vooral ook om het zingen. Dit doet ze al sinds ze klein is en verspreid over het internet zijn nog filmpjes te vinden van een piepjonge Irene die met veel plezier aan het zingen is op verschillende optredens. Ze zingt naast deze samenstelling tevens in haar band. Buiten het zingen en dansen werkt Irene als dyslexie-behandelaar bij het RID in Hengelo. Ze gaat wanneer het even kan hardlopen en speelt geregeld een pubquiz samen met haar vriend Rik, haar moeder en Jeroen en de rest van haar vrienden. Ze heeft er geen enkel probleem mee om de pubquiz uitgebreid na te bespreken in het plaatselijke café. Daarnaast gaat ze graag met haar vrienden en vriendinnen op stap naar concerten, of om lekker te eten, drinken en bij te praten.</p>
-      </article>
+      </div>
 
-      <article class="over-person">
-        <h2>JEROEN</h2>
+      <button class="over-scroll-down" type="button" data-scroll-target="jeroen" aria-label="Scroll naar Jeroen">
+        <span></span>
+      </button>
+    </section>
+
+    <section class="over-person over-person--jeroen" id="jeroen" aria-labelledby="jeroen-title">
+      <button class="over-scroll-up" type="button" data-scroll-target="irene" aria-label="Scroll naar Irene">
+        <span></span>
+      </button>
+
+      <div class="over-person-inner">
+        <h2 id="jeroen-title">JEROEN</h2>
         <p>Jeroen Keijzer (1979) groeide op in Winterswijk, ging studeren in Enschede en na zijn studie samenwonen met Anneloes in Bilthoven. In 2009 zijn ze getrouwd en samen hebben ze twee kinderen: Charlotte en Wouter. In 2016 besloten ze terug te verhuizen naar het oosten van het land en kwamen ze terecht in Borne. Sinds 2023 speelt Jeroen mee als toetsenist bij de band van het plaatselijke jongerenkoor Inpajoko. Vanuit daar belandde hij ook in de begeleidingsband van Bee a Singer. Kreeg Irene uiteindelijk zover om auditie te doen voor Bee a Singer en hielp haar daarom ook met voorbereiden voor de audities. Sindsdien vormen ze een muziekduo en maken samen met veel plezier muziek. Als Jeroen niet achter de toetsen zit, werkt hij als business intelligence consultant bij Victa in Borne en helpt hij bedrijven met uiteenlopende BI-vraagstukken. Buiten werk en muziek is hij actief met andere hobby’s zoals hardlopen, luchtvaart, pubquizzen, barbecueën en zal een gezellig cafébezoek met vrienden niet snel afslaan.</p>
-      </article>
+      </div>
     </section>
   </main>
 
