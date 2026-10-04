@@ -41,7 +41,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   min-height: 58px;
-  padding: 0 5vw;
+  padding: 0 25px;
   background: rgba(var(--nav-bg-r), var(--nav-bg-g), var(--nav-bg-b), var(--nav-bg-a));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
