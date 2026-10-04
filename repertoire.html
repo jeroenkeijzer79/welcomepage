@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Het actuele repertoire van Jeroen & Irene | Zang & Piano.">
+  <title>Repertoire | Jeroen & Irene</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Manrope%3A300%2C300italic%2C400%2C400italic%2C500%2C600%2C700%2C800%7CBai+Jamjuree%3A300%2C400%2C500%2C700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .repertoire-main {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 105px 20px 50px;
+      color: #222;
+      background: #fff;
+    }
+
+    .repertoire-inner {
+      width: min(100%, 1100px);
+      margin: 0 auto;
+      font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+
+    .repertoire-inner h1 {
+      margin: 20px 0 24px;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .repertoire-intro {
+      width: min(100%, 900px);
+      margin: 0 auto 34px;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    .repertoire-intro a {
+      color: #222;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .repertoire-embed {
+      display: block;
+      width: 100%;
+      height: 900px;
+      border: 0;
+      background: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .repertoire-main {
+        padding: 82px 12px 35px;
+      }
+
+      .repertoire-inner h1 {
+        font-size: 26px;
+        letter-spacing: 3px;
+      }
+
+      .repertoire-intro {
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      .repertoire-embed {
+        height: 1000px;
+      }
+    }
+  </style>
+</head>
+<body class="repertoire-page">
+  <header class="site-header">
+    <a class="site-logo" href="index.html" aria-label="Jeroen & Irene - Start">Jeroen &amp; Irene</a>
+    <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+      <a href="index.html">Start</a>
+      <a href="repertoire.html">Repertoire</a>
+      <a href="https://jeroenirene.nl/wp/over/">Over</a>
+      <div class="nav-dropdown">
+        <button type="button" aria-expanded="false">Horen &amp; Zien</button>
+        <div class="nav-dropdown-menu">
+          <a href="agenda.html">Agenda</a>
+          <a href="instagram.html">Foto &amp; Video</a>
+          <a href="aanvraag.html">Aanvraag</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-backdrop"></div>
+  <nav class="mobile-panel" aria-label="Mobiele navigatie" aria-hidden="true">
+    <button class="menu-close" type="button" aria-label="Menu sluiten">&times;</button>
+    <a href="index.html">Start</a>
+    <a href="repertoire.html">Repertoire</a>
+    <a href="https://jeroenirene.nl/wp/over/">Over</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="instagram.html">Foto &amp; Video</a>
+    <a href="aanvraag.html">Aanvraag</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="repertoire-main">
+    <section class="repertoire-inner">
+      <h1>Repertoire</h1>
+      <div class="repertoire-intro">
+        <p>Hier vind je een up-to-date overzicht van de nummers die we op dit moment kunnen spelen of waar we aan werken. De <a href="https://open.spotify.com/playlist/3vqQjDViyqTRi4PEOsDFi6?si=ed59cfe31e6d46cd" target="_blank" rel="noopener noreferrer">lijst</a> telt inmiddels tegen de 100 nummers, van klassiekers tot nieuwere hits, en wordt regelmatig bijgewerkt zodat er altijd iets fris tussen zit.</p>
+        <p>Of je nu zin hebt in een meezinger of een rustiger nummer, er zit voor ieder wat wils bij. We proberen de selectie zo gevarieerd mogelijk te houden en staan altijd open voor <a href="https://jeroenirene.nl/wp/130-2/" target="_blank" rel="noopener noreferrer">verzoekjes</a>.</p>
+        <p>Wie weet zie je jouw favoriet de volgende keer wel terug op de lijst!</p>
+      </div>
+
+      <iframe
+        class="repertoire-embed"
+        src="https://jeroenkeijzer79.github.io/SpotifyList/embed.html"
+        title="Repertoire Jeroen &amp; Irene"
+        loading="lazy">
+      </iframe>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
+  <script src="script.js"></script>
+</body>
+</html>
