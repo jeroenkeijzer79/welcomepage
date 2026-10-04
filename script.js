@@ -1,19 +1,20 @@
 (async () => {
   'use strict';
 
-  // Laad één gedeelde menubalk op alle pagina's.
+  // Laad één gedeelde menubalk op alle pagina's zonder de rest van de pagina te blokkeren.
   const navigationTarget = document.getElementById('site-navigation');
-  if (navigationTarget) {
-    try {
-      const response = await fetch(new URL('./content/navigation.html', document.baseURI).href, {
-        cache: 'no-store'
-      });
-      if (!response.ok) throw new Error('Menubalk laden mislukt');
-      navigationTarget.outerHTML = await response.text();
-    } catch (error) {
-      console.error('Menubalk laden mislukt:', error);
-    }
-  }
+  const navigationLoaded = navigationTarget
+    ? fetch(new URL('./content/navigation.html', document.baseURI).href, { cache: 'no-store' })
+        .then(response => {
+          if (!response.ok) throw new Error('Menubalk laden mislukt');
+          return response.text();
+        })
+        .then(html => {
+          navigationTarget.outerHTML = html;
+          document.dispatchEvent(new Event('navigationLoaded'));
+        })
+        .catch(error => console.error('Menubalk laden mislukt:', error))
+    : Promise.resolve();
   // Toon alleen het hoofddomein in de adresbalk, maar onthoud welke
   // pagina actief is. Zo kan een refresh op mobiel (pull-to-refresh)
   // niet onbedoeld terugvallen op de welkomstpagina.
@@ -116,9 +117,10 @@
 
   // Markeer de actieve pagina in de desktopnavigatie.
   const currentNavPath = (window.location.pathname !== '/' && window.location.pathname !== '') ? window.location.pathname.replace(/\\/$/, '') : (savedPage || '/').replace(/\\/$/, '') || '/';
-  document.querySelectorAll('.desktop-nav > a, .desktop-nav > .nav-dropdown > button').forEach((item) => {
-    item.classList.remove('active');
-  });
+  const markActiveNavigation = () => {
+    document.querySelectorAll('.desktop-nav > a, .desktop-nav > .nav-dropdown > button').forEach((item) => {
+      item.classList.remove('active');
+    });
   document.querySelectorAll('.desktop-nav > a').forEach((link) => {
     const target = new URL(link.href, window.location.href).pathname.replace(/\\/$/, '') || '/';
     if (target === currentNavPath) link.classList.add('active');
@@ -130,7 +132,10 @@
   });
   if (dropdownIsActive) {
     document.querySelector('.nav-dropdown > button')?.classList.add('active');
-  }
+    }
+  };
+  markActiveNavigation();
+  document.addEventListener('navigationLoaded', markActiveNavigation);
 
   const loadContent = async () => {
     const targets = [
@@ -280,6 +285,7 @@
     });
   });
 
+  const initializeMenu = () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const menuClose = document.querySelector('.menu-close');
   const mobilePanel = document.querySelector('.mobile-panel');
@@ -306,4 +312,8 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') setMenu(false);
   });
+  };
+
+  initializeMenu();
+  document.addEventListener('navigationLoaded', initializeMenu);
 })();
