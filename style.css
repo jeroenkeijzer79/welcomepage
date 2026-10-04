@@ -27,18 +27,27 @@ a { font: inherit; }
 a { color: inherit; }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
+  --nav-bg-r: 0;
+  --nav-bg-g: 0;
+  --nav-bg-b: 0;
+  --nav-bg-a: .30;
+  --nav-text-r: 255;
+  --nav-text-g: 255;
+  --nav-text-b: 255;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 72px;
   padding: 0 5vw;
-  background: var(--header-bg);
+  background: rgba(var(--nav-bg-r), var(--nav-bg-g), var(--nav-bg-b), var(--nav-bg-a));
+  color: rgb(var(--nav-text-r), var(--nav-text-g), var(--nav-text-b));
 }
 
 .site-logo {
+  color: inherit;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -60,7 +69,7 @@ a { color: inherit; }
   position: relative;
   border: 0;
   padding: 8px 0;
-  color: #fff;
+  color: inherit;
   background: transparent;
   text-decoration: none;
   cursor: pointer;
@@ -125,7 +134,7 @@ a { color: inherit; }
   display: block;
   height: 2px;
   margin: 6px 0;
-  background: #fff;
+  background: currentColor;
 }
 
 .mobile-backdrop {
