@@ -346,8 +346,8 @@ a { color: inherit; }
 
 .about {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 90vh;
+  min-height: 90svh;
   color: var(--content-text);
   background: #fff;
   display: flex;
