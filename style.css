@@ -1137,3 +1137,13 @@ body::-webkit-scrollbar-thumb,
     opacity: 1;
   }
 }
+
+/* Scrollknoppen verbergen op telefoons */
+@media (max-width: 767px) {
+  .scroll-down,
+  .about-scroll-up,
+  .over-scroll-down,
+  .over-scroll-up {
+    display: none !important;
+  }
+}
