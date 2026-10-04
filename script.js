@@ -1,5 +1,11 @@
 (() => {
   'use strict';
+  // Toon altijd alleen het hoofddomein in de adresbalk.
+  // De huidige pagina blijft intern gewoon geladen.
+  if (window.location.pathname !== '/' && window.location.pathname !== '') {
+    window.history.replaceState({}, document.title, '/');
+  }
+
   // Google Analytics 4
   // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
   const GA_MEASUREMENT_ID = 'G-SDLFLFQLH1';
