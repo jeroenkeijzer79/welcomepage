@@ -17,16 +17,32 @@
     }, 10000);
   }
 
+  const siteHeader = document.querySelector('.site-header');
   const scrollButton = document.querySelector('.scroll-down');
+  const aboutSection = document.querySelector('#content');
 
-  if (scrollButton) {
+  const updateHeader = () => {
+    if (!siteHeader) return;
+
+    const progress = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1);
+    const channel = Math.round(255 * progress);
+    const alpha = (0.30 + (0.70 * progress)).toFixed(3);
+    const textChannel = Math.round(255 * (1 - progress));
+
+    siteHeader.style.backgroundColor =
+      `rgba(${channel}, ${channel}, ${channel}, ${alpha})`;
+    siteHeader.style.color =
+      `rgb(${textChannel}, ${textChannel}, ${textChannel})`;
+  };
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  if (scrollButton && aboutSection) {
     scrollButton.addEventListener('click', () => {
-      const pageHeight = window.innerHeight;
-
-      window.scrollBy({
-        top: pageHeight,
-        left: 0,
-        behavior: 'smooth'
+      aboutSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     });
   }
