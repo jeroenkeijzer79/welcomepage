@@ -156,6 +156,11 @@ body:not(.home-page) .nav-dropdown > button::after {
   display: block;
   padding: 10px 16px;
   white-space: nowrap;
+  transition: background-color .2s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: #de5252;
 }
 
 .menu-toggle {
