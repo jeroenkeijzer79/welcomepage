@@ -43,6 +43,8 @@ a { color: inherit; }
   min-height: 58px;
   padding: 0 5vw;
   background: rgba(var(--nav-bg-r), var(--nav-bg-g), var(--nav-bg-b), var(--nav-bg-a));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: rgb(var(--nav-text-r), var(--nav-text-g), var(--nav-text-b));
   box-shadow: 0 4px 12px rgba(0, 0, 0, calc(var(--nav-bg-a) * .12));
 }
