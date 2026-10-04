@@ -1057,12 +1057,19 @@ a { color: inherit; }
 }
 
 
-/* Scrollbars verbergen, scrollen blijft gewoon werken */
-html {
+/* Scrollbars overal verbergen, scrollen blijft gewoon werken */
+html,
+body,
+* {
   scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-html::-webkit-scrollbar {
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
   display: none;
 }
 
