@@ -960,8 +960,8 @@ a { color: inherit; }
 
 .over-page .over-person-photo {
   float: left;
-  width: 160px;
-  height: 160px;
+  width: 168px;
+  height: 168px;
   object-fit: cover;
   border-radius: 0;
   margin: 0 32px 0 0;
