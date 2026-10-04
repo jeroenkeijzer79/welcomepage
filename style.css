@@ -1091,6 +1091,7 @@ body::-webkit-scrollbar-thumb,
 /* WELKOM: blur-naar-scherp, daarna verdwijnen wanneer de introductietekst verschijnt */
 .welcome-title {
   opacity: 0;
+  visibility: visible;
   filter: blur(12px);
   transform: scale(1.02);
   animation: welcomeBlurIn 9s ease-in-out forwards;
@@ -1120,6 +1121,7 @@ body::-webkit-scrollbar-thumb,
   50%,
   100% {
     opacity: 0;
+    visibility: hidden;
     filter: blur(0);
     transform: scale(1);
   }
