@@ -1,5 +1,68 @@
 (() => {
   'use strict';
+  // Google Analytics 4
+  // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
+  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+  const initAnalytics = () => {
+    if (!/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(script);
+  };
+
+  const trackEvent = (name, parameters = {}) => {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', name, parameters);
+  };
+
+  initAnalytics();
+
+  // Meet belangrijke navigatie- en conversieklikken.
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+
+    const href = link.href || '';
+    const text = (link.textContent || '').trim();
+    const label = text || href;
+
+    if (href.includes('gigstarter.nl')) {
+      trackEvent('gigstarter_click', { link_url: href });
+    } else if (href.includes('instagram.com')) {
+      trackEvent('instagram_click', { link_url: href });
+    } else if (href.includes('youtube.com') || href.includes('youtu.be')) {
+      trackEvent('youtube_click', { link_url: href });
+    } else if (href.includes('spotify.com')) {
+      trackEvent('spotify_click', { link_url: href });
+    } else if (href.endsWith('/agenda.html') || href.endsWith('agenda.html')) {
+      trackEvent('agenda_click', { link_text: label });
+    } else if (href.endsWith('/repertoire.html') || href.endsWith('repertoire.html')) {
+      trackEvent('repertoire_click', { link_text: label });
+    } else if (href.endsWith('/aanvraag.html') || href.endsWith('aanvraag.html')) {
+      trackEvent('aanvraag_click', { link_text: label });
+    } else if (href.endsWith('/contact.html') || href.endsWith('contact.html')) {
+      trackEvent('contact_click', { link_text: label });
+    }
+  });
+
+  document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement)) return;
+
+    if (form.classList.contains('contact-form')) {
+      trackEvent('contact_submit');
+    } else if (form.classList.contains('request-form')) {
+      trackEvent('aanvraag_submit');
+    }
+  });
 
   const loadContent = async () => {
     const targets = [
