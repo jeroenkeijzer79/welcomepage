@@ -117,7 +117,7 @@ a { color: inherit; }
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 9px);
-  right: 0;
+  right: -50px;
   min-width: 100%;
   text-align: left;
   min-width: 180px;
