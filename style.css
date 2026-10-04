@@ -1140,7 +1140,6 @@ body::-webkit-scrollbar-thumb,
 
 /* Scrollknoppen verbergen op telefoons */
 @media (max-width: 767px) {
-  .scroll-down,
   .about-scroll-up,
   .over-scroll-down,
   .over-scroll-up {
