@@ -569,6 +569,72 @@ a { color: inherit; }
   height: auto;
 }
 
+
+
+.contact-main {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 130px 20px 70px;
+  color: #222;
+  background: #fff;
+}
+
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  min-height: calc(100svh - 200px);
+}
+
+.contact-inner {
+  width: min(100%, 560px);
+  text-align: center;
+  font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+}
+
+.contact-inner h1 {
+  margin: 0 0 14px;
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.contact-inner > p {
+  margin: 0 0 28px;
+  color: #555;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.contact-page .contact-form {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .contact-main {
+    padding: 105px 18px 50px;
+  }
+
+  .contact-section {
+    min-height: calc(100vh - 155px);
+    min-height: calc(100svh - 155px);
+  }
+
+  .contact-inner h1 {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  .contact-inner > p {
+    font-size: 15px;
+  }
+}
 .site-footer {
   padding: 28px 20px;
   color: #aaa;
