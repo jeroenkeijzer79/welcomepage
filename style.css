@@ -1065,3 +1065,25 @@ html {
 html::-webkit-scrollbar {
   display: none;
 }
+
+
+/* WELKOM: subtiele blur-naar-scherp animatie */
+.welcome-title {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(1.02);
+  animation: welcomeBlurIn 2.2s ease-out forwards;
+}
+
+@keyframes welcomeBlurIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
