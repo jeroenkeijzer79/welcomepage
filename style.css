@@ -71,6 +71,9 @@ a { color: inherit; }
 .nav-dropdown > button {
   position: relative;
   border: 0;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
   padding: 8px 0;
   color: inherit;
   background: transparent;
@@ -94,7 +97,7 @@ a { color: inherit; }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -1px;
+  bottom: 0;
   height: 2px;
   background: #fff;
   content: "";
