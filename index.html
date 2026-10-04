@@ -4,18 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jeroen & Irene uit Borne vormen een enthousiast muziekduo met een gedeelde passie voor mooie, herkenbare muziek.">
+  <link rel="canonical" href="/">
   <title>Jeroen & Irene | Zang & Piano</title>
+  <script>
+    if (window.location.pathname.endsWith('/index.html')) {
+      window.history.replaceState({}, document.title, window.location.pathname.slice(0, -10) || '/');
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Manrope%3A300%2C300italic%2C400%2C400italic%2C500%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7CFraunces%3A400%2C400italic%2C500%2C600%2C700%2C700italic%7CBai+Jamjuree%3A200%2C300%2C400%2C400italic%2C500%2C700%2C700italic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Manrope%3A300%2C300italic%2C400%2C400italic%2C500%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7CFraunces%3A400%2C400italic%2C500%2C600%2C700%2C700italic&family=Bai+Jamjuree%3A200%2C300%2C400%2C400italic%2C500%2C700%2C700italic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <header class="site-header">
-    <a class="site-logo" href="index.html" aria-label="Jeroen & Irene - Start">Jeroen &amp; Irene</a>
-
+    <a class="site-logo" href="./" aria-label="Jeroen & Irene - Start">Jeroen &amp; Irene</a>
     <nav class="desktop-nav" aria-label="Hoofdnavigatie">
-      <a href="index.html">Start</a>
+      <a href="./">Start</a>
       <a href="repertoire.html">Repertoire</a>
       <a href="over.html">Over</a>
       <div class="nav-dropdown">
@@ -28,16 +33,13 @@
         </div>
       </div>
     </nav>
-
-    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false"><span></span><span></span><span></span></button>
   </header>
 
   <div class="mobile-backdrop"></div>
   <nav class="mobile-panel" aria-label="Mobiele navigatie" aria-hidden="true">
     <button class="menu-close" type="button" aria-label="Menu sluiten">&times;</button>
-    <a href="index.html">Start</a>
+    <a href="./">Start</a>
     <a href="repertoire.html">Repertoire</a>
     <a href="over.html">Over</a>
     <a href="agenda.html">Agenda</a>
@@ -56,24 +58,15 @@
         <div class="slide" style="background-image:url('https://jeroenirene.nl/wp/wp-content/uploads/2026/09/30E11DD0-C20A-43FA-B1B5-08E3493BE923_1_105_c.jpeg')"></div>
       </div>
       <div class="hero-overlay"></div>
-
       <div id="home-hero-content"></div>
-
-      <button class="scroll-down" type="button" aria-label="Scroll naar beneden">
-        <span></span>
-      </button>
+      <button class="scroll-down" type="button" aria-label="Scroll naar beneden"><span></span></button>
     </section>
-
     <section class="about" id="content">
-      <button class="about-scroll-up" type="button" aria-label="Scroll naar boven">
-        <span></span>
-      </button>
+      <button class="about-scroll-up" type="button" aria-label="Scroll naar boven"><span></span></button>
       <div id="home-about-content"></div>
     </section>
   </main>
-
   <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
-
   <script src="script.js"></script>
 </body>
 </html>
