@@ -33,13 +33,47 @@
       text-transform: uppercase;
     }
 
-    .agenda-embed {
-      display: block;
-      width: 100%;
-      height: 900px;
-      border: 0;
-      background: #fff;
-    }
+    .agenda-list-wrap { width: min(100%, 900px); margin: 0 auto; font-family: Arial, Helvetica, sans-serif; }
+    .embed-toolbar { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0 0 14px; }
+    .embed-filter { display:flex; align-items:center; gap:8px; margin:0; padding:7px 10px; border:1px solid #ddd; border-radius:8px; background:#fff; font-size:13px; font-weight:700; }
+    .embed-filter input { width:16px; height:16px; margin:0; }
+    .map-button { border:1px solid #ddd; border-radius:8px; background:#fff; color:#171717; padding:7px 12px; font:700 12px Arial,Helvetica,sans-serif; cursor:pointer; }
+    .event-list { display:grid; gap:8px; }
+    .event-section { margin:0 0 20px; }
+    .event-section-title { margin:0 0 8px; padding:0 2px; font:700 15px/1.3 Arial,Helvetica,sans-serif; }
+    .past-section .event-section-title { opacity:.6; }
+    .event { display:grid; grid-template-columns:44px 100px minmax(0,1fr) 28px; gap:10px; align-items:center; padding:7px 10px; background:#fff; border:1px solid #ddd; border-radius:8px; transition:background-color .15s ease,transform .1s ease; }
+    .event:hover { background:#f5f5f5; }
+    .event:active { transform:scale(.995); }
+    .event.past { opacity:.48; }
+    .event.past:hover { opacity:.7; }
+    .event-date { text-align:center; font-weight:700; text-transform:uppercase; line-height:1.05; }
+    .event-day { display:block; font-size:18px; letter-spacing:-.03em; }
+    .event-month { display:block; font-size:9px; opacity:.55; letter-spacing:.12em; margin-top:3px; }
+    .event-thumb { width:100px; height:100px; overflow:hidden; border-radius:6px; background:#eee; display:flex; align-items:center; justify-content:center; }
+    .event-thumb img { display:block; width:100%; height:100%; object-fit:cover; }
+    .event-main { min-width:0; }
+    .event-time { font-size:11px; font-weight:700; opacity:.55; margin-bottom:3px; }
+    .event-name { margin:0 0 2px; font-size:14px; font-weight:700; }
+    .event-location { margin:0; font-size:12px; font-weight:400; opacity:.65; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .event-expand { width:28px; height:28px; display:flex; align-items:center; justify-content:center; padding:0; border:0; border-radius:50%; background:transparent; color:inherit; cursor:pointer; }
+    .event-expand:hover { background:#eee; }
+    .event-arrow { display:block; font-size:22px; line-height:1; opacity:.55; }
+    .event-details { grid-column:1/-1; max-height:0; overflow:hidden; opacity:0; margin-top:0; padding-top:0; border-top:0; transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease,padding-top .35s ease; }
+    .event-details-inner { padding:0 4px 4px; }
+    .event-expand[aria-expanded="true"] + .event-details { margin-top:4px; padding-top:12px; border-top:1px solid #ddd; }
+    .event-description { font-size:14px; line-height:1.6; font-weight:400; overflow-wrap:anywhere; }
+    .event-image { display:block; width:100%; max-width:100%; height:auto; margin:0 0 10px; border-radius:6px; object-fit:cover; }
+    .event-link { display:inline-block; margin-top:12px; font-size:12px; color:inherit; opacity:.6; text-decoration:none; }
+    .message { padding:14px; text-align:center; color:#777; font-size:13px; }
+    .agenda-map-panel { margin:0 0 14px; border:1px solid #ddd; border-radius:8px; overflow:hidden; background:#fff; }
+    .map-panel-heading { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; font-size:13px; }
+    .map-panel-heading button { border:0; background:transparent; font-size:22px; line-height:1; cursor:pointer; opacity:.55; }
+    .agenda-map { width:100%; height:420px; }
+    .agenda-map .leaflet-tile-pane { filter:grayscale(100%) brightness(1.08); }
+    .agenda-map-loading { display:flex; align-items:center; justify-content:center; height:100%; min-height:180px; font-size:13px; color:#777; }
+    @media (max-width:900px) { .agenda-list-wrap { width:100%; } }
+    @media (max-width:600px) { .event { grid-template-columns:44px 100px minmax(0,1fr) 28px; } }
 
     @media (max-width: 900px) {
       .agenda-main {
@@ -94,16 +128,47 @@
   <main class="agenda-main">
     <section class="agenda-inner">
       <h1>Agenda</h1>
-      <iframe
-        class="agenda-embed"
-        src="https://jeroenkeijzer79.github.io/Agenda/embed.html"
-        title="Agenda Jeroen &amp; Irene"
-        loading="lazy">
-      </iframe>
+      <div class="agenda-list-wrap">
+        <div class="embed-toolbar">
+          <label class="embed-filter"><input type="checkbox" id="future-only"><span>Toon alleen toekomstige evenementen</span></label>
+          <button id="show-map" class="map-button" type="button">Kaart</button>
+        </div>
+        <div id="agenda-map-panel" class="agenda-map-panel" hidden><div class="map-panel-heading"><strong>Alle optredens op de kaart</strong><button id="close-map" type="button" aria-label="Sluiten">×</button></div><div id="agenda-map" class="agenda-map"></div></div>
+        <div id="event-list" class="event-list"></div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getFirestore, collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { firebaseConfig } from "https://jeroenkeijzer79.github.io/Agenda/firebase-config.js";
+import { showAgendaMap } from "https://jeroenkeijzer79.github.io/Agenda/map.js";
+
+const db=getFirestore(initializeApp(firebaseConfig));
+const list=document.getElementById("event-list"), futureOnly=document.getElementById("future-only");
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#039;"}[c]));
+const fmt=d=>{const x=new Date(d+"T12:00:00");return{day:x.toLocaleDateString("nl-NL",{day:"2-digit"}),month:x.toLocaleDateString("nl-NL",{month:"short"}).replace(".","").toUpperCase()};};
+const isPast=e=>e.date&&new Date(e.date+"T"+(e.time||"23:59")+":00")<new Date();
+let allEvents=[];
+
+function render(){
+ const upcoming=allEvents.filter(e=>!isPast(e)).sort((a,b)=>(a.date||"").localeCompare(b.date||"")||(a.time||"").localeCompare(b.time||""));
+ const past=allEvents.filter(e=>isPast(e)).sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.time||"").localeCompare(a.time||""));
+ if(!upcoming.length&&(!past.length||futureOnly.checked)){list.innerHTML='<div class="message">Geen optredens gepland.</div>';return;}
+ const item=e=>{const f=fmt(e.date),p=isPast(e),details=!!(e.description||e.url||e.imageUrl);return '<article class="event'+(p?' past':'')+'"><div class="event-date"><span class="event-day">'+esc(f.day)+'</span><span class="event-month">'+esc(f.month)+'</span></div><div class="event-thumb">'+(e.imageUrl?'<img src="'+esc(e.imageUrl)+'" alt="" loading="lazy">':'')+'</div><div class="event-main"><div class="event-time">'+esc(e.time||"")+'</div><p class="event-name">'+esc(e.name||"")+'</p><p class="event-location">'+esc(e.location||"")+(e.place?' · '+esc(e.place):"")+'</p></div>'+(details?'<button class="event-expand" type="button" aria-expanded="false" aria-label="Meer informatie tonen"><span class="event-arrow">⌄</span></button><div class="event-details" hidden><div class="event-details-inner">'+(e.imageUrl?'<img class="event-image" src="'+esc(e.imageUrl)+'" alt="" loading="lazy">':"")+(e.description?'<div class="event-description">'+esc(e.description).replace(/\n/g,"<br>")+'</div>':"")+(e.url?'<a class="event-link" href="'+esc(e.url)+'" target="_blank" rel="noopener">Meer informatie ↗</a>':"")+'</div></div>':"")+'</article>';};
+ let sections=[];
+ if(upcoming.length)sections.push('<section class="event-section"><h2 class="event-section-title">Aankomende optredens</h2><div class="event-list">'+upcoming.map(item).join("")+'</div></section>');
+ if(!futureOnly.checked&&past.length)sections.push('<section class="event-section past-section"><h2 class="event-section-title">Optredens die geweest zijn</h2><div class="event-list">'+past.map(item).join("")+'</div></section>');
+ list.innerHTML=sections.join("");
+ list.querySelectorAll(".event-expand").forEach(b=>b.addEventListener("click",()=>{const d=b.parentElement.querySelector(".event-details"),a=b.querySelector(".event-arrow"),open=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",String(open));a.textContent=open?"⌃":"⌄";if(open){d.hidden=false;d.style.maxHeight="0px";d.style.opacity="0";requestAnimationFrame(()=>{d.style.maxHeight=d.scrollHeight+"px";d.style.opacity="1";});d.addEventListener("transitionend",function h(){if(b.getAttribute("aria-expanded")==="true")d.style.maxHeight="none";d.removeEventListener("transitionend",h);});}else{d.style.maxHeight=d.scrollHeight+"px";requestAnimationFrame(()=>{d.style.maxHeight="0px";d.style.opacity="0";});d.addEventListener("transitionend",function h(){if(b.getAttribute("aria-expanded")==="false")d.hidden=true;d.removeEventListener("transitionend",h);});}}));
+}
+document.getElementById("show-map").addEventListener("click",async()=>{const p=document.getElementById("agenda-map-panel");p.hidden=false;await showAgendaMap(document.getElementById("agenda-map"),allEvents);});
+document.getElementById("close-map").addEventListener("click",()=>document.getElementById("agenda-map-panel").hidden=true);
+futureOnly.addEventListener("change",render);
+onSnapshot(query(collection(db,"optredens"),orderBy("date")),snap=>{allEvents=snap.docs.map(d=>({id:d.id,...d.data()}));render();},err=>{console.error("Agenda load error:",err);list.innerHTML='<div class="message">Agenda kon niet worden geladen.</div>';});
+</script>
   <script src="script.js"></script>
 </body>
 </html>
