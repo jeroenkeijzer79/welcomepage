@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Agenda van Jeroen & Irene | Zang & Piano.">
+  <title>Agenda | Jeroen & Irene</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Manrope%3A300%2C300italic%2C400%2C400italic%2C500%2C600%2C700%2C800%7CBai+Jamjuree%3A300%2C400%2C500%2C700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .agenda-main {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 105px 20px 50px;
+      color: #222;
+      background: #fff;
+    }
+
+    .agenda-inner {
+      width: min(100%, 1100px);
+      margin: 0 auto;
+    }
+
+    .agenda-inner h1 {
+      margin: 20px 0 28px;
+      text-align: center;
+      font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .agenda-embed {
+      display: block;
+      width: 100%;
+      height: 900px;
+      border: 0;
+      background: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .agenda-main {
+        padding: 82px 12px 35px;
+      }
+
+      .agenda-inner h1 {
+        font-size: 26px;
+        letter-spacing: 3px;
+      }
+
+      .agenda-embed {
+        height: 1000px;
+      }
+    }
+  </style>
+</head>
+<body class="agenda-page">
+  <header class="site-header">
+    <a class="site-logo" href="index.html" aria-label="Jeroen & Irene - Start">Jeroen &amp; Irene</a>
+    <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+      <a href="index.html">Start</a>
+      <a href="https://jeroenirene.nl/wp/nummers-repertoire/">Repertoire</a>
+      <a href="https://jeroenirene.nl/wp/over/">Over</a>
+      <div class="nav-dropdown">
+        <button type="button" aria-expanded="false">Horen &amp; Zien</button>
+        <div class="nav-dropdown-menu">
+          <a href="agenda.html">Agenda</a>
+          <a href="instagram.html">Foto &amp; Video</a>
+          <a href="aanvraag.html">Aanvraag</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-backdrop"></div>
+  <nav class="mobile-panel" aria-label="Mobiele navigatie" aria-hidden="true">
+    <button class="menu-close" type="button" aria-label="Menu sluiten">&times;</button>
+    <a href="index.html">Start</a>
+    <a href="https://jeroenirene.nl/wp/nummers-repertoire/">Repertoire</a>
+    <a href="https://jeroenirene.nl/wp/over/">Over</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="instagram.html">Foto &amp; Video</a>
+    <a href="aanvraag.html">Aanvraag</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="agenda-main">
+    <section class="agenda-inner">
+      <h1>Agenda</h1>
+      <iframe
+        class="agenda-embed"
+        src="https://jeroenkeijzer79.github.io/Agenda/embed.html"
+        title="Agenda Jeroen &amp; Irene"
+        loading="lazy">
+      </iframe>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
+  <script src="script.js"></script>
+</body>
+</html>
