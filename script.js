@@ -2,7 +2,7 @@
   'use strict';
   // Google Analytics 4
   // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
-  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  const GA_MEASUREMENT_ID = 'G-SDLFLFQLH1';
 
   const initAnalytics = () => {
     if (!/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
