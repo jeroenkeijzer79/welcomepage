@@ -1,10 +1,40 @@
 (() => {
   'use strict';
-  // Toon altijd alleen het hoofddomein in de adresbalk.
-  // De huidige pagina blijft intern gewoon geladen.
-  if (window.location.pathname !== '/' && window.location.pathname !== '') {
+  // Toon alleen het hoofddomein in de adresbalk, maar onthoud welke
+  // pagina actief is. Zo kan een refresh op mobiel (pull-to-refresh)
+  // niet onbedoeld terugvallen op de welkomstpagina.
+  const currentPath = window.location.pathname;
+  const isRoot = currentPath === '/' || currentPath === '';
+  const navigationEntry = performance.getEntriesByType('navigation')[0];
+  const isReload = navigationEntry && navigationEntry.type === 'reload';
+  const savedPage = sessionStorage.getItem('activePage');
+
+  if (isRoot && isReload && savedPage && savedPage !== '/') {
+    window.location.replace(savedPage);
+    return;
+  }
+
+  if (!isRoot) {
+    sessionStorage.setItem('activePage', currentPath);
     window.history.replaceState({}, document.title, '/');
   }
+
+  // Interne navigatie onthouden voordat de zichtbare URL wordt aangepast.
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+
+    try {
+      const target = new URL(link.href, window.location.href);
+      if (target.origin !== window.location.origin) return;
+
+      if (target.pathname === '/' || target.pathname === '') {
+        sessionStorage.setItem('activePage', '/');
+      } else if (target.pathname.endsWith('.html')) {
+        sessionStorage.setItem('activePage', target.pathname);
+      }
+    } catch (_) {}
+  }, true);
 
   // Google Analytics 4
   // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
