@@ -356,7 +356,7 @@ a { color: inherit; }
 
 .about-scroll-up {
   position: absolute;
-  top: 52px;
+  top: 102px;
   left: 50%;
   z-index: 2;
   width: 34px;
