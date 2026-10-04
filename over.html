@@ -11,7 +11,38 @@
   <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body class="over-page">
-  <div id="site-navigation"></div>
+  <header class="site-header">
+    <a class="site-logo" href="index.html" aria-label="Jeroen & Irene - Start">Jeroen &amp; Irene</a>
+    <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+      <a href="./">Welkom</a>
+    <a href="repertoire.html">Repertoire</a>
+      <div class="nav-dropdown">
+        <button type="button" aria-expanded="false">Horen &amp; Zien</button>
+        <div class="nav-dropdown-menu">
+          <a href="agenda.html">Agenda</a>
+          <a href="instagram.html">Foto &amp; Video</a>
+          <a href="aanvraag.html">Aanvraag</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <a href="over.html">Over</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-backdrop"></div>
+  <nav class="mobile-panel" aria-label="Mobiele navigatie" aria-hidden="true">
+    <button class="menu-close" type="button" aria-label="Menu sluiten">&times;</button>
+    <a href="index.html">Welkom</a>
+    <a href="repertoire.html">Repertoire</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="instagram.html">Foto &amp; Video</a>
+    <a href="aanvraag.html">Aanvraag</a>
+    <a href="contact.html">Contact</a>
+    <a href="over.html">Over</a>
+  </nav>
 
   <main class="over-main">
     <section class="over-person over-person--irene" id="irene" aria-labelledby="irene-title">
@@ -48,6 +79,6 @@
   </main>
 
   <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
