@@ -200,13 +200,14 @@
 
   const header = document.querySelector('.site-header');
   const hero = document.querySelector('.hero');
+  const hasHero = Boolean(hero);
 
-  if (header && hero) {
+  if (header) {
     let ticking = false;
 
     const updateHeader = () => {
-      const fadeDistance = Math.max(1, hero.offsetHeight - header.offsetHeight);
-      const progress = Math.min(1, Math.max(0, window.scrollY / fadeDistance));
+      const fadeDistance = hasHero ? Math.max(1, hero.offsetHeight - header.offsetHeight) : 1;
+      const progress = hasHero ? Math.min(1, Math.max(0, window.scrollY / fadeDistance)) : 1;
       const value = Math.round(255 * progress);
       const inverse = 255 - value;
 
