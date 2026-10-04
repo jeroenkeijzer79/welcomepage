@@ -136,6 +136,8 @@ body:not(.home-page) .nav-dropdown > button::after {
   padding: 8px 0;
   border-radius: 4px;
   background: rgba(var(--nav-bg-r), var(--nav-bg-g), var(--nav-bg-b), var(--nav-bg-a));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
