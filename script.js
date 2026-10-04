@@ -21,14 +21,51 @@
 
   if (scrollButton) {
     scrollButton.addEventListener('click', () => {
-      const pageHeight = window.innerHeight;
+      const content = document.getElementById('content');
 
-      window.scrollBy({
-        top: pageHeight,
-        left: 0,
-        behavior: 'smooth'
-      });
+      if (content) {
+        content.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
+  }
+
+  const header = document.querySelector('.site-header');
+  const hero = document.querySelector('.hero');
+
+  if (header && hero) {
+    let ticking = false;
+
+    const updateHeader = () => {
+      const fadeDistance = Math.max(1, hero.offsetHeight - header.offsetHeight);
+      const progress = Math.min(1, Math.max(0, window.scrollY / fadeDistance));
+      const value = Math.round(255 * progress);
+      const inverse = 255 - value;
+
+      header.style.setProperty('--nav-bg-r', value);
+      header.style.setProperty('--nav-bg-g', value);
+      header.style.setProperty('--nav-bg-b', value);
+      header.style.setProperty('--nav-bg-a', progress === 0 ? '.30' : String(progress));
+
+      header.style.setProperty('--nav-text-r', inverse);
+      header.style.setProperty('--nav-text-g', inverse);
+      header.style.setProperty('--nav-text-b', inverse);
+
+      ticking = false;
+    };
+
+    const requestHeaderUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
+    window.addEventListener('resize', requestHeaderUpdate);
+    updateHeader();
   }
 
   const menuToggle = document.querySelector('.menu-toggle');
