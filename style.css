@@ -734,6 +734,7 @@ a { color: inherit; }
   font-size: 18px;
   font-weight: 300;
   line-height: 1.9;
+  text-align: center;
 }
 
 .request-inner h1 {
