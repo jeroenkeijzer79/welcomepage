@@ -1098,7 +1098,7 @@ body::-webkit-scrollbar-thumb,
 
 .welcome-intro {
   opacity: 0;
-  animation: welcomeIntro 8s ease-in-out forwards;
+  animation: welcomeIntro 9s ease-in-out forwards;
 }
 
 @keyframes welcomeBlurIn {
