@@ -148,7 +148,7 @@ import { showAgendaMap } from "https://jeroenkeijzer79.github.io/Agenda/map.js";
 
 const db=getFirestore(initializeApp(firebaseConfig));
 const list=document.getElementById("event-list"), futureOnly=document.getElementById("future-only");
-const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#039;"}[c]));
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""\\"":"&quot;","'":"&#039;"}[c]));
 const fmt=d=>{const x=new Date(d+"T12:00:00");return{day:x.toLocaleDateString("nl-NL",{day:"2-digit"}),month:x.toLocaleDateString("nl-NL",{month:"short"}).replace(".","").toUpperCase()};};
 const isPast=e=>e.date&&new Date(e.date+"T"+(e.time||"23:59")+":00")<new Date();
 let allEvents=[];
