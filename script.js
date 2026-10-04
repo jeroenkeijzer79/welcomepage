@@ -3,23 +3,38 @@
 
   const loadContent = async () => {
     const targets = [
-      ['home-hero-content', 'content/home.html', 'hero-content'],
-      ['home-about-content', 'content/home.html', 'about-inner'],
-      ['contact-content', 'content/contact.html', 'contact-inner'],
-      ['instagram-content', 'content/instagram.html', 'instagram-inner']
+      ['home-hero-content', './content/home.html', 'hero-content'],
+      ['home-about-content', './content/home.html', 'about-inner'],
+      ['contact-content', './content/contact.html', 'contact-inner'],
+      ['instagram-content', './content/instagram.html', 'instagram-inner']
     ];
+
     await Promise.all(targets.map(async ([id, url, className]) => {
       const target = document.getElementById(id);
       if (!target) return;
+
       try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Content kon niet worden geladen');
+        const response = await fetch(new URL(url, document.baseURI).href, {
+          cache: 'no-store'
+        });
+
+        if (!response.ok) {
+          throw new Error(`Content laden mislukt: ${response.status}`);
+        }
+
+        const html = await response.text();
         const template = document.createElement('template');
-        template.innerHTML = await response.text();
+        template.innerHTML = html;
+
         const content = template.content.querySelector('.' + className);
-        if (content) target.replaceWith(content);
+
+        if (!content) {
+          throw new Error(`Element .${className} ontbreekt in ${url}`);
+        }
+
+        target.replaceWith(content);
       } catch (error) {
-        console.error(error);
+        console.error('Content laden mislukt:', error);
       }
     }));
   };
