@@ -47,13 +47,76 @@
       text-underline-offset: 3px;
     }
 
-    .repertoire-embed {
-      display: block;
+    .repertoire-list {
       width: min(100%, 900px);
-      height: 900px;
       margin: 0 auto;
-      border: 0;
-      background: #fff;
+      display: grid;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .repertoire-track {
+      display: grid;
+      grid-template-columns: 28px 40px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 7px 10px;
+      background: #F5F5F5;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .repertoire-track:hover {
+      background: #E9E9E9;
+    }
+
+    .repertoire-track:active {
+      transform: scale(0.995);
+    }
+
+    .repertoire-art {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .repertoire-number {
+      font-size: 13px;
+      font-weight: 700;
+      opacity: .45;
+      text-align: center;
+    }
+
+    .repertoire-title {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .repertoire-artist {
+      margin: 2px 0 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      opacity: .6;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .repertoire-message {
+      padding: 12px;
+      color: #777;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      text-align: left;
     }
 
     @media (max-width: 900px) {
@@ -71,8 +134,29 @@
         line-height: 1.75;
       }
 
-      .repertoire-embed {
-        height: 1000px;
+      .repertoire-list {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .repertoire-track {
+        grid-template-columns: 24px 36px minmax(0, 1fr);
+        gap: 8px;
+        padding: 6px 8px;
+      }
+
+      .repertoire-art {
+        width: 36px;
+        height: 36px;
+      }
+
+      .repertoire-title {
+        font-size: 13px;
+      }
+
+      .repertoire-artist {
+        font-size: 10px;
       }
     }
   </style>
@@ -120,16 +204,75 @@
         <p>Wie weet zie je jouw favoriet de volgende keer wel terug op de lijst!</p>
       </div>
 
-      <iframe
-        class="repertoire-embed"
-        src="https://jeroenkeijzer79.github.io/SpotifyList/embed.html"
-        title="Repertoire Jeroen &amp; Irene"
-        loading="lazy">
-      </iframe>
+      <div id="repertoire-list" class="repertoire-list" aria-label="Repertoirelijst">
+        <div class="repertoire-message">Repertoire laden...</div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
+
+  <script>
+    (() => {
+      const list = document.getElementById("repertoire-list");
+      const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        """: "&quot;",
+        "'": "&#039;"
+      }[c]));
+
+      fetch("https://jeroenkeijzer79.github.io/SpotifyList/playlist.json?v=2")
+        .then(response => {
+          if (!response.ok) throw new Error("De repertoirelijst kon niet worden geladen.");
+          return response.json();
+        })
+        .then(data => {
+          const tracks = data.tracks || [];
+
+          if (!tracks.length) {
+            list.innerHTML = '<div class="repertoire-message">Geen nummers beschikbaar.</div>';
+            return;
+          }
+
+          list.innerHTML = tracks.map((track, index) => {
+            const artists = Array.isArray(track.artists) ? track.artists.join(", ") : "";
+            const image = track.image
+              ? '<img class="repertoire-art" src="' + esc(track.image) + '" alt="" loading="lazy">'
+              : '<div class="repertoire-art"></div>';
+
+            return '<article class="repertoire-track" role="link" tabindex="0" data-url="' + esc(track.url || "") + '">' +
+              '<div class="repertoire-number">' + String(index + 1).padStart(2, "0") + '</div>' +
+              image +
+              '<div>' +
+                '<p class="repertoire-title">' + esc(track.title) + '</p>' +
+                '<p class="repertoire-artist">' + esc(artists) + '</p>' +
+              '</div>' +
+            '</article>';
+          }).join("");
+
+          list.querySelectorAll(".repertoire-track").forEach(track => {
+            const openSpotify = () => {
+              const url = track.dataset.url;
+              if (url) window.open(url, "_blank", "noopener");
+            };
+
+            track.addEventListener("click", openSpotify);
+            track.addEventListener("keydown", event => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openSpotify();
+              }
+            });
+          });
+        })
+        .catch(error => {
+          list.innerHTML = '<div class="repertoire-message">' + esc(error.message) + '</div>';
+        });
+    })();
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
