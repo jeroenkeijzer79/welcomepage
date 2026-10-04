@@ -129,8 +129,8 @@ body:not(.home-page) .nav-dropdown > button::after {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 9px);
-  right: -50px;
+  top: calc(100% + 6px);
+  right: -45px;
   min-width: 100%;
   text-align: left;
   min-width: 180px;
