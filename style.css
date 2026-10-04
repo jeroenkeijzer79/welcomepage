@@ -270,37 +270,61 @@ a { color: inherit; }
   left: 50%;
   bottom: 28px;
   z-index: 3;
-  width: 30px;
-  height: 30px;
+  width: 68px;
+  height: 68px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .30);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .20), transparent 42%),
+    rgba(118, 143, 145, .72);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, .28),
+    inset 0 -2px 5px rgba(0, 0, 0, .08);
   transform: translateX(-50%);
   cursor: pointer;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
 
-.scroll-down::before,
+.scroll-down > span {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  width: 23px;
+  height: 23px;
+  border-right: 6px solid rgba(255, 255, 255, .88);
+  border-bottom: 6px solid rgba(255, 255, 255, .88);
+  border-radius: 1px 4px 5px 4px;
+  transform: translate(-50%, -60%) rotate(45deg);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .08));
+}
+
 .scroll-down::after {
   position: absolute;
-  top: 10px;
-  width: 11px;
-  height: 2px;
-  border-radius: 2px;
-  background: #222;
+  z-index: 1;
+  inset: -60% auto -60% -80%;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, .34),
+    transparent
+  );
   content: "";
+  transform: rotate(22deg) translateX(0);
+  animation: scrollShine 3.6s ease-in-out infinite;
 }
 
-.scroll-down::before {
-  left: 5px;
-  transform: rotate(45deg);
-}
-
-.scroll-down::after {
-  right: 5px;
-  transform: rotate(-45deg);
+@keyframes scrollShine {
+  0%, 35% {
+    transform: rotate(22deg) translateX(0);
+  }
+  65%, 100% {
+    transform: rotate(22deg) translateX(340%);
+  }
 }
 
 .scroll-down:hover {
@@ -308,7 +332,7 @@ a { color: inherit; }
 }
 
 .scroll-down:focus-visible {
-  outline: 2px solid #222;
+  outline: 2px solid rgba(255, 255, 255, .9);
   outline-offset: 5px;
   border-radius: 50%;
 }
