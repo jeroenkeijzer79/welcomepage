@@ -277,7 +277,7 @@ a { color: inherit; }
 .welcome-title {
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 3.1em;
-  font-weight: 300;
+  font-weight: 200;
   letter-spacing: 16px;
   text-transform: uppercase;
   animation: welcomeTitle 8s ease-in-out forwards;
