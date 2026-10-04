@@ -32,6 +32,32 @@
     });
   }
 
+  const about = document.querySelector('.about');
+  const aboutScrollUp = document.querySelector('.about-scroll-up');
+
+  if (about && aboutScrollUp) {
+    const updateAboutArrow = (entries) => {
+      const entry = entries[0];
+      aboutScrollUp.classList.toggle('is-visible', entry.isIntersecting && entry.intersectionRatio >= 0.97);
+    };
+
+    const aboutObserver = new IntersectionObserver(updateAboutArrow, {
+      threshold: [0, 0.5, 0.9, 0.97, 1]
+    });
+
+    aboutObserver.observe(about);
+
+    aboutScrollUp.addEventListener('click', () => {
+      const hero = document.getElementById('hero');
+      if (hero) {
+        hero.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  }
+
   const header = document.querySelector('.site-header');
   const hero = document.querySelector('.hero');
 
