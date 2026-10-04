@@ -1,5 +1,19 @@
-(() => {
+(async () => {
   'use strict';
+
+  // Laad één gedeelde menubalk op alle pagina's.
+  const navigationTarget = document.getElementById('site-navigation');
+  if (navigationTarget) {
+    try {
+      const response = await fetch(new URL('./content/navigation.html', document.baseURI).href, {
+        cache: 'no-store'
+      });
+      if (!response.ok) throw new Error('Menubalk laden mislukt');
+      navigationTarget.outerHTML = await response.text();
+    } catch (error) {
+      console.error('Menubalk laden mislukt:', error);
+    }
+  }
   // Toon alleen het hoofddomein in de adresbalk, maar onthoud welke
   // pagina actief is. Zo kan een refresh op mobiel (pull-to-refresh)
   // niet onbedoeld terugvallen op de welkomstpagina.
@@ -101,7 +115,7 @@
   });
 
   // Markeer de actieve pagina in de desktopnavigatie.
-  const currentNavPath = window.location.pathname.replace(/\\/$/, '') || '/';
+  const currentNavPath = (window.location.pathname !== '/' && window.location.pathname !== '') ? window.location.pathname.replace(/\\/$/, '') : (savedPage || '/').replace(/\\/$/, '') || '/';
   document.querySelectorAll('.desktop-nav > a, .desktop-nav > .nav-dropdown > button').forEach((item) => {
     item.classList.remove('active');
   });
