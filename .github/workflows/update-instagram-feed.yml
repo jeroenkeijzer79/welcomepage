@@ -1,0 +1,37 @@
+name: Update Instagram feed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-instagram-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch Instagram media
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error \
+            "https://graph.instagram.com/v25.0/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=25&access_token=${INSTAGRAM_ACCESS_TOKEN}" \
+            -o instagram-response.json
+
+          jq '[.data[] | select(.media_url != null or .thumbnail_url != null)]' instagram-response.json > instagram-feed.json
+          rm instagram-response.json
+
+      - name: Commit updated feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add instagram-feed.json
+          git diff --cached --quiet || git commit -m "Update Instagram feed"
+          git push
