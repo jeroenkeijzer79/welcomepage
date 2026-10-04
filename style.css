@@ -99,7 +99,7 @@ a { color: inherit; }
   right: 0;
   bottom: 0;
   height: 2px;
-  background: #c91e1e;
+  background: #de5252;
   content: "";
   transform: scaleX(0);
   transform-origin: center;
@@ -116,7 +116,7 @@ a { color: inherit; }
 /* Op pagina's met een witte menubalk is de hoverstreep donkergrijs. */
 body:not(.home-page) .desktop-nav > a::after,
 body:not(.home-page) .nav-dropdown > button::after {
-  background: #c91e1e;
+  background: #de5252;
 }
 
 .nav-dropdown { position: relative; }
