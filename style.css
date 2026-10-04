@@ -99,7 +99,8 @@ a { color: inherit; }
   right: 0;
   bottom: 0;
   height: 2px;
-  background: #de5252;
+  background: linear-gradient(to top, #de5252 0%, rgba(222, 82, 82, .55) 45%, rgba(222, 82, 82, 0) 100%);
+  box-shadow: 0 -3px 8px rgba(222, 82, 82, .45);
   content: "";
   transform: scaleX(0);
   transform-origin: center;
