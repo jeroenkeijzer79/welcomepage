@@ -40,7 +40,7 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  min-height: 58px;
   padding: 0 5vw;
   background: rgba(var(--nav-bg-r), var(--nav-bg-g), var(--nav-bg-b), var(--nav-bg-a));
   color: rgb(var(--nav-text-r), var(--nav-text-g), var(--nav-text-b));
@@ -61,7 +61,7 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   gap: 30px;
-  height: 72px;
+  height: 58px;
 }
 
 .desktop-nav a,
@@ -449,7 +449,7 @@ a { color: inherit; }
 
 @media (max-width: 900px) {
   .site-header {
-    min-height: 64px;
+    min-height: 51px;
     padding: 0 18px;
   }
 
