@@ -672,7 +672,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   }
 }
 .site-footer {
-  padding: 33px 20px 23px;
+  padding: 43px 20px 13px;
   color: #ccc;
   background: #fff;
   text-align: center;
