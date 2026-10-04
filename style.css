@@ -446,6 +446,52 @@ a { color: inherit; }
   margin: 0 0 24px;
 }
 
+.social-links {
+  position: absolute;
+  left: 50%;
+  bottom: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  transform: translateX(-50%);
+}
+
+.social-links a {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #777;
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.social-links svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-links .social-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-links .youtube-play {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-links a:hover {
+  color: #444;
+  transform: translateY(-2px);
+}
+
 .gigstarter-link {
   position: absolute;
   left: 50%;
