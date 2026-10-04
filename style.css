@@ -1093,7 +1093,7 @@ body::-webkit-scrollbar-thumb,
   opacity: 0;
   filter: blur(12px);
   transform: scale(1.02);
-  animation: welcomeBlurIn 8s ease-in-out forwards;
+  animation: welcomeBlurIn 9s ease-in-out forwards;
 }
 
 .welcome-intro {
