@@ -1,6 +1,31 @@
 (() => {
   'use strict';
 
+  const loadContent = async () => {
+    const targets = [
+      ['home-hero-content', 'content/home.html', 'hero-content'],
+      ['home-about-content', 'content/home.html', 'about-inner'],
+      ['contact-content', 'content/contact.html', 'contact-inner'],
+      ['instagram-content', 'content/instagram.html', 'instagram-inner']
+    ];
+    await Promise.all(targets.map(async ([id, url, className]) => {
+      const target = document.getElementById(id);
+      if (!target) return;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Content kon niet worden geladen');
+        const template = document.createElement('template');
+        template.innerHTML = await response.text();
+        const content = template.content.querySelector('.' + className);
+        if (content) target.replaceWith(content);
+      } catch (error) {
+        console.error(error);
+      }
+    }));
+  };
+
+  loadContent();
+
   const slides = [...document.querySelectorAll('.slide')];
 
   if (slides.length > 1) {
