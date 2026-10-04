@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Foto's en Instagram-berichten van Jeroen & Irene | Zang & Piano.">
+  <title>Foto & Video | Jeroen & Irene</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Manrope%3A300%2C300italic%2C400%2C400italic%2C500%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7CFraunces%3A400%2C400italic%2C500%2C600%2C700%2C700italic%7CBai+Jamjuree%3A200%2C300%2C400%2C400italic%2C500%2C700%2C700italic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .instagram-main {
+      min-height: 100vh;
+      padding: 120px 20px 70px;
+      color: #222;
+      background: #fff;
+    }
+
+    .instagram-inner {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
+    }
+
+    .instagram-inner h1 {
+      margin: 0 0 12px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .instagram-intro {
+      margin: 0 0 38px;
+      color: #666;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .instagram-feed {
+      display: grid;
+      gap: 34px;
+    }
+
+    .instagram-post {
+      overflow: hidden;
+      border: 1px solid #e7e7e7;
+      background: #fff;
+    }
+
+    .instagram-post-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .instagram-post-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #f4f4f4;
+    }
+
+    .instagram-post-meta {
+      padding: 15px 18px 17px;
+    }
+
+    .instagram-post-date {
+      color: #777;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .instagram-post-caption {
+      margin: 7px 0 0;
+      color: #333;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+
+    .instagram-status {
+      padding: 35px 10px;
+      color: #777;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .instagram-status.is-error {
+      color: #999;
+    }
+
+    @media (max-width: 900px) {
+      .instagram-main {
+        padding: 95px 16px 50px;
+      }
+
+      .instagram-inner h1 {
+        font-size: 26px;
+        letter-spacing: 3px;
+      }
+
+      .instagram-intro {
+        font-size: 15px;
+        margin-bottom: 28px;
+      }
+
+      .instagram-feed {
+        gap: 24px;
+      }
+
+      .instagram-post-meta {
+        padding: 13px 14px 15px;
+      }
+    }
+  </style>
+</head>
+<body class="instagram-page">
+  <header class="site-header">
+    <a class="site-logo" href="index.html" aria-label="Jeroen & Irene - Start">Jeroen &amp; Irene</a>
+
+    <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+      <a href="https://jeroenirene.nl/wp/">Start</a>
+      <a href="https://jeroenirene.nl/wp/nummers-repertoire/">Repertoire</a>
+      <a href="https://jeroenirene.nl/wp/over/">Over</a>
+      <div class="nav-dropdown">
+        <button type="button" aria-expanded="false">Horen &amp; Zien</button>
+        <div class="nav-dropdown-menu">
+          <a href="https://jeroenirene.nl/wp/354-2/">Agenda</a>
+          <a href="instagram.html">Foto &amp; Video</a>
+          <a href="https://jeroenirene.nl/wp/feestje/">Aanvraag</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-backdrop"></div>
+  <nav class="mobile-panel" aria-label="Mobiele navigatie" aria-hidden="true">
+    <button class="menu-close" type="button" aria-label="Menu sluiten">&times;</button>
+    <a href="https://jeroenirene.nl/wp/">Start</a>
+    <a href="https://jeroenirene.nl/wp/nummers-repertoire/">Repertoire</a>
+    <a href="https://jeroenirene.nl/wp/over/">Over</a>
+    <a href="https://jeroenirene.nl/wp/354-2/">Agenda</a>
+    <a href="instagram.html">Foto &amp; Video</a>
+    <a href="https://jeroenirene.nl/wp/feestje/">Aanvraag</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="instagram-main">
+    <div class="instagram-inner">
+      <h1>Foto &amp; Video</h1>
+      <p class="instagram-intro">De nieuwste berichten van Jeroen &amp; Irene op Instagram.</p>
+      <div id="instagram-feed" class="instagram-feed" aria-live="polite">
+        <div class="instagram-status">Instagram-berichten worden geladen…</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">© 2026 Jeroen &amp; Irene</footer>
+
+  <script src="script.js"></script>
+  <script>
+    const feed = document.getElementById('instagram-feed');
+
+    const formatDate = (value) => {
+      const date = new Date(value);
+      return new Intl.DateTimeFormat('nl-NL', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(date);
+    };
+
+    const escapeHtml = (value) => {
+      const div = document.createElement('div');
+      div.textContent = value || '';
+      return div.innerHTML;
+    };
+
+    const loadInstagram = async () => {
+      try {
+        const response = await fetch('instagram-feed.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Feed niet beschikbaar');
+
+        const posts = await response.json();
+
+        if (!Array.isArray(posts) || posts.length === 0) {
+          feed.innerHTML = '<div class="instagram-status">Er zijn nog geen Instagram-berichten beschikbaar.</div>';
+          return;
+        }
+
+        feed.innerHTML = posts.map((post) => {
+          const image = post.media_url || post.thumbnail_url || '';
+          if (!image) return '';
+
+          return `
+            <article class="instagram-post">
+              <a class="instagram-post-link" href="${escapeHtml(post.permalink || 'https://www.instagram.com/jeroenirene/')}" target="_blank" rel="noopener noreferrer">
+                <img class="instagram-post-image" src="${escapeHtml(image)}" alt="Instagram-bericht van Jeroen & Irene" loading="lazy">
+                <div class="instagram-post-meta">
+                  <div class="instagram-post-date">${escapeHtml(formatDate(post.timestamp))}</div>
+                  ${post.caption ? `<p class="instagram-post-caption">${escapeHtml(post.caption)}</p>` : ''}
+                </div>
+              </a>
+            </article>
+          `;
+        }).join('');
+
+        if (!feed.innerHTML.trim()) {
+          feed.innerHTML = '<div class="instagram-status">Er zijn geen foto’s beschikbaar om te tonen.</div>';
+        }
+      } catch (error) {
+        feed.innerHTML = '<div class="instagram-status is-error">De Instagram-berichten kunnen momenteel niet worden geladen.</div>';
+      }
+    };
+
+    loadInstagram();
+  </script>
+</body>
+</html>
