@@ -286,8 +286,6 @@ a { color: inherit; }
   padding: 18px 28px;
   border-radius: 10px;
   background: rgba(255, 255, 255, .01);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 1.3em;
   font-weight: 400;
