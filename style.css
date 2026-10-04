@@ -1088,12 +1088,17 @@ body::-webkit-scrollbar-thumb,
 }
 
 
-/* WELKOM: subtiele blur-naar-scherp animatie */
+/* WELKOM: blur-naar-scherp, daarna verdwijnen wanneer de introductietekst verschijnt */
 .welcome-title {
   opacity: 0;
   filter: blur(12px);
   transform: scale(1.02);
-  animation: welcomeBlurIn 2.2s ease-out forwards;
+  animation: welcomeBlurIn 8s ease-in-out forwards;
+}
+
+.welcome-intro {
+  opacity: 0;
+  animation: welcomeIntro 8s ease-in-out forwards;
 }
 
 @keyframes welcomeBlurIn {
@@ -1102,9 +1107,31 @@ body::-webkit-scrollbar-thumb,
     filter: blur(12px);
     transform: scale(1.02);
   }
-  100% {
+  27.5% {
     opacity: 1;
     filter: blur(0);
     transform: scale(1);
+  }
+  37.5% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+  50%,
+  100% {
+    opacity: 0;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes welcomeIntro {
+  0%,
+  37.5% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
   }
 }
