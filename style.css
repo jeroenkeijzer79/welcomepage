@@ -330,6 +330,9 @@ a { color: inherit; }
   display: grid;
   place-items: center;
   overflow: hidden;
+  opacity: 0;
+  filter: blur(12px);
+  animation: scrollButtonBlurIn 1.5s ease-out 5s forwards;
 }
 
 .scroll-down > span {
@@ -339,8 +342,8 @@ a { color: inherit; }
   top: 50%;
   width: 12px;
   height: 12px;
-  border-right: 3px solid rgba(255, 255, 255, .88);
-  border-bottom: 3px solid rgba(255, 255, 255, .88);
+  border-right: 3px solid rgba(0, 0, 0, .88);
+  border-bottom: 3px solid rgba(0, 0, 0, .88);
   border-radius: 1px 4px 5px 4px;
   transform: translate(-50%, -60%) rotate(45deg);
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .08));
@@ -360,6 +363,17 @@ a { color: inherit; }
   content: "";
   transform: rotate(22deg) translateX(0);
   animation: scrollShine 3.6s ease-in-out infinite;
+}
+
+@keyframes scrollButtonBlurIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 @keyframes scrollShine {
@@ -721,6 +735,12 @@ a { color: inherit; }
   .welcome-title,
   .welcome-intro {
     animation: none;
+  }
+
+  .scroll-down {
+    animation: none;
+    opacity: 1;
+    filter: none;
   }
 
   .welcome-intro { opacity: 1; }
