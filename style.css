@@ -106,7 +106,9 @@ a { color: inherit; }
 
 .desktop-nav > a:hover::after,
 .nav-dropdown > button:hover::after,
-.nav-dropdown:focus-within > button::after {
+.nav-dropdown:focus-within > button::after,
+.desktop-nav > a.active::after,
+.nav-dropdown > button.active::after {
   transform: scaleX(1);
 }
 
