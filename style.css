@@ -86,6 +86,27 @@ a { color: inherit; }
   opacity: .75;
 }
 
+.desktop-nav > a::after,
+.nav-dropdown > button::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #fff;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .2s ease;
+  z-index: 1001;
+}
+
+.desktop-nav > a:hover::after,
+.nav-dropdown > button:hover::after,
+.nav-dropdown:focus-within > button::after {
+  transform: scaleX(1);
+}
+
 .nav-dropdown { position: relative; }
 
 .nav-dropdown > button span {
