@@ -38,7 +38,9 @@
 
   // Markeer de huidige pagina in het menu, zodat de hoverstreep zichtbaar blijft.
   const markActiveNavigation = () => {
-    const activePath = window.location.pathname !== '/' && window.location.pathname !== ''\n      ? window.location.pathname\n      : (sessionStorage.getItem('activePage') || '/');
+    const activePath = window.location.pathname !== '/' && window.location.pathname !== ''
+      ? window.location.pathname
+      : (sessionStorage.getItem('activePage') || '/');
 
     document.querySelectorAll('.desktop-nav a').forEach((link) => {
       try {
