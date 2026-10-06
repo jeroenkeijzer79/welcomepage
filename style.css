@@ -275,7 +275,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   top: 0;
   right: 0;
   z-index: 1999;
-  width: min(320px, 82vw);
+  width: min(240px, 61.5vw);
   height: 100dvh;
   padding: 76px 24px 24px;
   overflow-y: auto;
