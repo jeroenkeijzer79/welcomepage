@@ -768,7 +768,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 
   .site-logo { font-size: 12px; }\n\n  .site-logo-tagline {
     font-size: 4.5px;
-    letter-spacing: -1.25px;\n  }
+    letter-spacing: -1.25px;\n    left: 8px;\n  }
 
   .desktop-nav { display: none; }
 
