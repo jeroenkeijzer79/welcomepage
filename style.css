@@ -1082,6 +1082,13 @@ body:not(.home-page) .nav-dropdown > button::after {
   overflow: hidden;
 }
 
+.over-page .over-scroll-down,
+.over-page .over-scroll-up {
+  opacity: 0;
+  filter: blur(12px);
+  animation: scrollButtonBlurIn 1.5s ease-out 2s forwards;
+}
+
 .over-page .over-scroll-down {
   bottom: 28px;
 }
