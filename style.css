@@ -95,13 +95,13 @@ a { color: inherit; }
     opacity: 0;
     transform: translateY(-18px);
   }
-  37% {
+  47% {
     opacity: 0.8;
-    transform: translateY(13.8px);
+    transform: translateY(12.08px);
   }
-  57% {
+  67% {
     opacity: 0;
-    transform: translateY(26.4px);
+    transform: translateY(24.88px);
   }
   100% {
     opacity: 0;
