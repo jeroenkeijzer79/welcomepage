@@ -796,7 +796,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   .welcome-intro {
     width: 88vw;
     font-size: clamp(.9rem, 3.8vw, 1.05rem);
-    line-height: 1.55;
+    line-height: calc(1.55em + 3px);
   }
 
   .about-inner {
