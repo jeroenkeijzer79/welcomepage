@@ -99,9 +99,9 @@ a { color: inherit; }
     opacity: 0.8;
     transform: translateY(-5px);
   }
-  50% {
+  40% {
     opacity: 0.8;
-    transform: translateY(20px);
+    transform: translateY(14px);
   }
   100% {
     opacity: 0;
