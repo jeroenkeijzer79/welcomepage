@@ -776,7 +776,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .request-inner {
-  width: min(100%, 900px);
+  width: min(100%, 760px);
   padding: 20px 0 60px;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 18px;
@@ -799,7 +799,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .request-form {
-  width: min(100%, 560px);
+  width: 100%;
   margin: 42px auto 0;
 }
 
