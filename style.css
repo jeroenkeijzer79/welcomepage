@@ -97,11 +97,11 @@ a { color: inherit; }
   }
   27% {
     opacity: 0.8;
-    transform: translateY(-5px);
+    transform: translateY(0.72px);
   }
   40% {
     opacity: 0.8;
-    transform: translateY(14px);
+    transform: translateY(8.4px);
   }
   100% {
     opacity: 0;
