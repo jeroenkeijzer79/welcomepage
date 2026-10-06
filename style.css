@@ -1534,7 +1534,7 @@ body::-webkit-scrollbar-thumb,
     }
 
     .repertoire-intro {
-      width: min(100%, 850px);
+      width: min(100%, 800px);
       margin: 0 auto 34px;
       font-size: 18px;
       font-weight: 300;
@@ -1548,7 +1548,7 @@ body::-webkit-scrollbar-thumb,
     }
 
     .repertoire-list {
-      width: min(100%, 850px);
+      width: min(100%, 800px);
       margin: 0 auto;
       display: grid;
       gap: 6px;
