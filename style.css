@@ -103,6 +103,10 @@ a { color: inherit; }
     opacity: 0.8;
     transform: translateY(8.4px);
   }
+  80% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
   100% {
     opacity: 0;
     transform: translateY(46px);
