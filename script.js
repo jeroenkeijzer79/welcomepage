@@ -36,7 +36,7 @@
     } catch (_) {}
   }, true);
 
-  // Google Analytics 4
+  // Markeer de huidige pagina in het menu, zodat de hoverstreep zichtbaar blijft.\n  const markActiveNavigation = () => {\n    const activePath = sessionStorage.getItem('activePage') || window.location.pathname || '/';\n    document.querySelectorAll('.desktop-nav a').forEach((link) => {\n      try {\n        const linkPath = new URL(link.href, window.location.href).pathname;\n        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\\/$/, '');\n        const normalizedActivePath = activePath === '/' ? '/' : activePath.replace(/\\/$/, '');\n        if (normalizedLinkPath === normalizedActivePath) {\n          link.classList.add('is-active');\n          const dropdown = link.closest('.nav-dropdown');\n          if (dropdown) dropdown.classList.add('has-active');\n        }\n      } catch (_) {}\n    });\n  };\n\n  markActiveNavigation();\n\n  // Google Analytics 4
   // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
   const GA_MEASUREMENT_ID = 'G-SDLFLFQLH1';
 
