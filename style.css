@@ -82,6 +82,12 @@ a { color: inherit; }
   opacity: 0;
   transform: translateY(-4px);
   animation: logoTagline 4.5s ease-in-out 1 forwards;
+  position: fixed;
+  top: 58px;
+  left: 25px;
+  width: 172px;
+  z-index: 1001;
+  pointer-events: none;
 }
 
 @keyframes logoTagline {
