@@ -130,7 +130,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 2px);
-  right: -45px;
+  right: -40px;
   min-width: 100%;
   text-align: left;
   min-width: 180px;
