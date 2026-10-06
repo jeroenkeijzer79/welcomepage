@@ -93,7 +93,7 @@ a { color: inherit; }
 @keyframes logoTagline {
   0% {
     opacity: 0;
-    transform: translateY(-18px);
+    transform: translateY(-26px);
   }
   40% {
     opacity: 0.8;
