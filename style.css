@@ -81,7 +81,7 @@ a { color: inherit; }
   text-transform: none;
   opacity: 0;
   transform: translateY(-4px);
-  animation: logoTagline 5s linear 1 forwards;
+  animation: logoTagline 5s linear 0.5s 1 forwards;
   position: fixed;
   top: 58px;
   left: 25px;
