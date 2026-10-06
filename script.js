@@ -260,14 +260,20 @@
 
   // Scrollknoppen op de Over-pagina.
   document.querySelectorAll('[data-scroll-target]').forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+
       const targetId = button.getAttribute('data-scroll-target');
       const target = targetId ? document.getElementById(targetId) : null;
       if (!target) return;
 
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      const header = document.querySelector('.site-header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: 'smooth'
       });
     });
   });
