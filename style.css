@@ -1021,11 +1021,11 @@ body:not(.home-page) .nav-dropdown > button::after {
 
 .over-page .over-person-photo {
   float: left;
-  width: 168px;
-  height: 168px;
+  width: 171px;
+  height: 171px;
   object-fit: cover;
   border-radius: 0;
-  margin: 10px 32px 0 0;
+  margin: 7px 32px 0 0;
   shape-outside: margin-box;
 }
 
