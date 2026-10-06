@@ -960,6 +960,24 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 
+/* Subtiele fade-in van de tekst op de Over-pagina */
+.over-page .over-person-inner {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: overTextFadeIn 1.4s ease-out .4s forwards;
+}
+
+@keyframes overTextFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Over-pagina: Irene en Jeroen krijgen ieder een volledig wit scherm. */
 .over-page .over-main {
   padding: 0;
@@ -1168,6 +1186,12 @@ body:not(.home-page) .nav-dropdown > button::after {
 @media (prefers-reduced-motion: reduce) {
   .over-page .over-person {
     scroll-behavior: auto;
+  }
+
+  .over-page .over-person-inner {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
