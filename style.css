@@ -97,15 +97,15 @@ a { color: inherit; }
   }
   40% {
     opacity: 0.8;
-    transform: translateY(7.6px);
+    transform: translateY(-0.4px);
   }
   60% {
     opacity: 0;
-    transform: translateY(20.4px);
+    transform: translateY(12.4px);
   }
   100% {
     opacity: 0;
-    transform: translateY(46px);
+    transform: translateY(38px);
   }
 }
 
