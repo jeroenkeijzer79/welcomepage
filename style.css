@@ -74,13 +74,14 @@ a { color: inherit; }
   margin-top: 1px;
   font-size: 6px;
   font-weight: 400;
-  letter-spacing: 1.15px;
+  letter-spacing: 0;
   line-height: 1;
-  text-align: center;
+  text-align: justify;
+  text-align-last: justify;
   text-transform: none;
   opacity: 0;
   transform: translateY(-4px);
-  animation: logoTagline 4.5s ease-in-out infinite;
+  animation: logoTagline 4.5s ease-in-out 1 forwards;
 }
 
 @keyframes logoTagline {
