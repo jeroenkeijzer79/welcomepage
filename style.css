@@ -108,7 +108,7 @@ a { color: inherit; }
   z-index: 1001;
 }
 
-.desktop-nav > a:hover::after,
+.desktop-nav > a.is-active::after,\n.nav-dropdown.has-active > button::after,\n.desktop-nav > a:hover::after,
 .nav-dropdown > button:hover::after,
 .nav-dropdown:focus-within > button::after {
   transform: scaleX(1);
