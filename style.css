@@ -835,7 +835,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .request-inner {
-  width: min(100%, 760px);
+  width: min(100%, 700px);
   padding: 20px 0 60px;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 18px;
@@ -1357,7 +1357,7 @@ body::-webkit-scrollbar-thumb,
       text-transform: uppercase;
     }
 
-    .agenda-intro {
+     .agenda-intro {
       width: min(100%, 760px);
       margin: 0 auto 34px;
       font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
@@ -1371,7 +1371,7 @@ body::-webkit-scrollbar-thumb,
       margin: 0 0 22px;
     }
 
-    .agenda-list-wrap { width: min(100%, 900px); margin: 0 auto; font-family: Arial, Helvetica, sans-serif; }
+    .agenda-list-wrap { width: min(100%, 700px); margin: 0 auto; font-family: Arial, Helvetica, sans-serif; }
     .embed-toolbar { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0 0 14px; }
     .embed-filter { display:flex; align-items:center; gap:8px; margin:0; padding:7px 10px; border:1px solid #ddd; border-radius:8px; background:#fff; font-size:13px; font-weight:700; }
     .embed-filter input { width:16px; height:16px; margin:0; }
