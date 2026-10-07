@@ -1231,9 +1231,10 @@ body:not(.home-page) .nav-dropdown > button::after {
   }
 
   .over-page .over-person-inner {
-    animation: none;
-    opacity: 1;
-    transform: none;
+    animation: overTextFadeIn 10s ease-in-out forwards;
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
   }
 }
 
