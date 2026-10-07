@@ -835,7 +835,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .request-inner {
-  width: min(100%, 700px);
+  width: min(100%, 650px);
   padding: 20px 0 60px;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 18px;
