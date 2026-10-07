@@ -1414,6 +1414,11 @@ body::-webkit-scrollbar-thumb,
         letter-spacing: 3px;
       }
 
+      .agenda-intro {
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
       .agenda-embed {
         height: 1000px;
       }
