@@ -997,9 +997,10 @@ body:not(.home-page) .nav-dropdown > button::after {
 
 /* Subtiele fade-in van de tekst op de Over-pagina */
 .over-page .over-person-inner {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: overTextFadeIn 10s ease-in-out forwards;
+  opacity: 0 !important;
+  filter: blur(12px) !important;
+  transform: scale(1.02) !important;
+  animation: overTextFadeIn 10s ease-in-out forwards !important;
 }
 
 @keyframes overTextFadeIn {
