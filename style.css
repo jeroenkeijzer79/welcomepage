@@ -1368,7 +1368,8 @@ body::-webkit-scrollbar-thumb,
 
      .agenda-intro {
       
-      width: min(100%, 650px);
+      width: min(650px, calc(100vw - 40px));
+      max-width: 650px;
       margin: 0 auto 34px;
       font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
       font-size: 18px;
