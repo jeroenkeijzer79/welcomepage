@@ -1040,7 +1040,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   width: min(100%, var(--max-content));
   margin: 0 auto;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 200;
   line-height: 2.3;
   text-align: left;
@@ -1061,7 +1061,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 .over-page .over-person p {
   margin: 0;
   color: #222;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 200;
   line-height: 2.3;
   text-align: justify;
@@ -1192,7 +1192,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 
   .over-page .over-person-inner {
     width: min(100%, var(--max-content));
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
   }
 
@@ -1204,7 +1204,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   }
 
   .over-page .over-person p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
   }
 
