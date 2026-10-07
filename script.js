@@ -59,6 +59,37 @@
 
   markActiveNavigation();
 
+  // Houd de tagline exact even breed als de titel, ongeacht schermresolutie.
+  const matchLogoTaglineToTitle = () => {
+    const logoName = document.querySelector('.site-logo-name');
+    const tagline = document.querySelector('.site-logo-tagline');
+    if (!logoName || !tagline) return;
+
+    const titleWidth = logoName.getBoundingClientRect().width;
+
+    const clone = tagline.cloneNode(true);
+    clone.style.cssText = window.getComputedStyle(tagline).cssText +
+      ';position:absolute;width:max-content;left:-99999px;top:0;transform:none;animation:none;opacity:1;';
+    document.body.appendChild(clone);
+    const naturalWidth = clone.getBoundingClientRect().width;
+    clone.remove();
+
+    if (naturalWidth > 0) {
+      tagline.style.setProperty('--tagline-scale', String(titleWidth / naturalWidth));
+    }
+  };
+
+  const updateLogoTaglineWidth = () => {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(matchLogoTaglineToTitle);
+    } else {
+      matchLogoTaglineToTitle();
+    }
+  };
+
+  updateLogoTaglineWidth();
+  window.addEventListener('resize', updateLogoTaglineWidth);
+
   // Google Analytics 4
   // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
   const GA_MEASUREMENT_ID = 'G-SDLFLFQLH1';
