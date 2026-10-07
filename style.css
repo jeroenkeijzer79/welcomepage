@@ -549,7 +549,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   margin: 0 auto;
   padding: 80px 0 125px;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 200;
   line-height: 2.3;
   text-align: center;
