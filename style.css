@@ -212,25 +212,6 @@ body:not(.home-page) .nav-dropdown > button::after {
   transition: background-color .2s ease;
 }
 
-.nav-dropdown-menu a::after {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(to top, #de5252 0%, rgba(222, 82, 82, .55) 45%, rgba(222, 82, 82, 0) 100%);
-  box-shadow: 0 -3px 8px rgba(222, 82, 82, .45);
-  content: "";
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform .2s ease;
-  z-index: 1001;
-}
-
-.nav-dropdown-menu a:hover::after,
-.nav-dropdown-menu a.is-active::after {
-  transform: scaleX(1);
-}
 
 .nav-dropdown-menu a:hover {
   background-color: #de5252;
