@@ -1380,7 +1380,7 @@ body::-webkit-scrollbar-thumb,
     .event-section { margin:0 0 20px; }
     .event-section-title { margin:0 0 8px; padding:0 2px; font:700 15px/1.3 Arial,Helvetica,sans-serif; }
     .past-section .event-section-title { opacity:.6; }
-    .event { display:grid; grid-template-columns:44px 100px minmax(0,1fr) 28px; gap:10px; align-items:center; padding:7px 10px; background:#fff; border:1px solid #ddd; border-radius:8px; transition:background-color .15s ease,transform .1s ease; }
+    .event { display:grid; grid-template-columns:44px 75px minmax(0,1fr) 28px; gap:10px; align-items:center; padding:6px 10px; background:#fff; border:1px solid #ddd; border-radius:8px; transition:background-color .15s ease,transform .1s ease; }
     .event:hover { background:#f5f5f5; }
     .event:active { transform:scale(.995); }
     .event.past { opacity:.48; }
@@ -1388,7 +1388,7 @@ body::-webkit-scrollbar-thumb,
     .event-date { text-align:center; font-weight:700; text-transform:uppercase; line-height:1.05; }
     .event-day { display:block; font-size:18px; letter-spacing:-.03em; }
     .event-month { display:block; font-size:9px; opacity:.55; letter-spacing:.12em; margin-top:3px; }
-    .event-thumb { width:100px; height:100px; overflow:hidden; border-radius:6px; background:#eee; display:flex; align-items:center; justify-content:center; }
+    .event-thumb { width:75px; height:75px; overflow:hidden; border-radius:6px; background:#eee; display:flex; align-items:center; justify-content:center; }
     .event-thumb img { display:block; width:100%; height:100%; object-fit:cover; }
     .event-main { min-width:0; }
     .event-time { font-size:11px; font-weight:700; opacity:.55; margin-bottom:3px; }
@@ -1411,7 +1411,7 @@ body::-webkit-scrollbar-thumb,
     .agenda-map .leaflet-tile-pane { filter:grayscale(100%) brightness(1.08); }
     .agenda-map-loading { display:flex; align-items:center; justify-content:center; height:100%; min-height:180px; font-size:13px; color:#777; }
     @media (max-width:900px) { .agenda-list-wrap { width:100%; } }
-    @media (max-width:600px) { .event { grid-template-columns:44px 100px minmax(0,1fr) 28px; } }
+    @media (max-width:600px) { .event { grid-template-columns:44px 75px minmax(0,1fr) 28px; } }
 
     @media (max-width: 900px) {
       .agenda-main {
