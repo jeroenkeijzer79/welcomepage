@@ -317,13 +317,13 @@ body:not(.home-page) .nav-dropdown > button::after {
   opacity: 0;
   filter: blur(0);
   transform: scale(1.02);
-  transition: opacity 3s ease-in-out, filter 3s ease-in-out;
+  transition: opacity 4s ease-in-out, filter 4s ease-in-out;
 }
 
 .slide.is-active {
   opacity: 1;
   filter: blur(0);
-  animation: slideBlurIn 3s ease-in-out;
+  animation: slideBlurIn 4s ease-in-out;
 }
 
 @keyframes slideBlurIn {
