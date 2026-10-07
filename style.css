@@ -1669,7 +1669,7 @@ body::-webkit-scrollbar-thumb,
    ========================================= */
 
 .slide-1 { background-image: url('images/slide1.jpeg'); }
-.slide-2 { background-image: url('images/slide2.jpeg'); }
+.slide-2 { background-image: url('images/slide2.jpeg'); background-position: center 35%; }
 .slide-3 { background-image: url('images/slide3.jpeg'); }
 .slide-4 { background-image: url('images/slide4.jpeg'); }
 .slide-5 { background-image: url('images/slide5.jpeg'); }
