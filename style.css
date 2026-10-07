@@ -529,7 +529,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .about-inner {
-  width: min(100% - 40px, var(--max-content));
+  width: min(100%, 800px);
   margin: 0 auto;
   padding: 80px 0 125px;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
@@ -540,7 +540,7 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .about-inner p {
-  margin: 0 0 24px;
+  margin: 0 0 22px;
 }
 
 .contact-form {
@@ -783,9 +783,10 @@ body:not(.home-page) .nav-dropdown > button::after {
   }
 
   .about-inner {
-    width: min(100% - 36px, var(--max-content));
+    width: min(100%, 800px);
     padding: 55px 0 110px;
     font-size: 16px;
+    line-height: 1.75;
   }
 
   .contact-form {
