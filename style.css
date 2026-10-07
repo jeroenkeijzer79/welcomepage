@@ -1268,12 +1268,12 @@ body::-webkit-scrollbar-thumb,
   visibility: visible;
   filter: blur(12px);
   transform: scale(1.02);
-  animation: welcomeBlurIn 9s ease-in-out forwards;
+  animation: welcomeBlurIn 10s ease-in-out forwards;
 }
 
 .welcome-intro {
   opacity: 0;
-  animation: welcomeIntro 9s ease-in-out forwards;
+  animation: welcomeIntro 10s ease-in-out forwards;
 }
 
 @keyframes welcomeBlurIn {
