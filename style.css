@@ -1305,10 +1305,18 @@ body::-webkit-scrollbar-thumb,
   0%,
   44.4% {
     opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
   }
-  55.6%,
+  55.6% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
   100% {
     opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
   }
 }
 
