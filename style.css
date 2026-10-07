@@ -999,17 +999,24 @@ body:not(.home-page) .nav-dropdown > button::after {
 .over-page .over-person-inner {
   opacity: 0;
   transform: translateY(8px);
-  animation: overTextFadeIn 1.4s ease-out .4s forwards;
+  animation: overTextFadeIn 10s ease-in-out forwards;
 }
 
 @keyframes overTextFadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(8px);
+    filter: blur(12px);
+    transform: scale(1.02);
   }
-  to {
+  22.2% {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
   }
 }
 
