@@ -1703,6 +1703,36 @@ body::-webkit-scrollbar-thumb,
       }
     }
 
+
+
+/* REPERTOIRE: tekst en nummers verschijnen subtiel vanuit blur */
+.repertoire-page .repertoire-intro {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(4px) scale(1.01);
+  animation: repertoireBlurIn 1s ease-out forwards;
+}
+
+.repertoire-page .repertoire-list {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(4px) scale(1.01);
+  animation: repertoireBlurIn 1s ease-out .12s forwards;
+}
+
+@keyframes repertoireBlurIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* =========================================
    INDEX SLIDESHOW
    ========================================= */
