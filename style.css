@@ -1703,73 +1703,7 @@ body::-webkit-scrollbar-thumb,
       }
     }
 
-
-
-/* REPERTOIRE: tekst en nummers verschijnen subtiel vanuit blur */
-.repertoire-page .repertoire-intro {
-  opacity: 0;
-  filter: blur(12px);
-  transform: translateY(4px) scale(1.01);
-  animation: repertoireBlurIn 1s ease-out forwards;
-}
-
-.repertoire-page .repertoire-list {
-  opacity: 0;
-  filter: blur(12px);
-  transform: translateY(4px) scale(1.01);
-  animation: repertoireBlurIn 1s ease-out .12s forwards;
-}
-
-@keyframes repertoireBlurIn {
-  0% {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateY(4px) scale(1.01);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) scale(1);
-  }
-}
-
-
-
-/* REPERTOIRE: zichtbare blur-in na het dynamisch laden */
-.repertoire-page .repertoire-intro {
-  opacity: 0;
-  filter: blur(14px);
-  transform: translateY(6px);
-}
-
-.repertoire-page .repertoire-list {
-  opacity: 0;
-  filter: blur(14px);
-  transform: translateY(6px);
-}
-
-.repertoire-page .repertoire-intro {
-  animation: repertoireContentBlurIn 1s ease-out .05s forwards;
-}
-
-.repertoire-page .repertoire-list.is-loaded {
-  animation: repertoireContentBlurIn 1s ease-out .15s forwards;
-}
-
-.repertoire-page .repertoire-list.is-loaded .repertoire-track {
-  animation: repertoireItemBlurIn 1s ease-out both;
-}
-
-@keyframes repertoireContentBlurIn {
-  from { opacity: 0; filter: blur(14px); transform: translateY(6px); }
-  to { opacity: 1; filter: blur(0); transform: translateY(0); }
-}
-
-@keyframes repertoireItemBlurIn {
-  from { opacity: 0; filter: blur(10px); transform: translateY(4px); }
-  to { opacity: 1; filter: blur(0); transform: translateY(0); }
-}
-\n/* =========================================
+/* =========================================
    INDEX SLIDESHOW
    ========================================= */
 
