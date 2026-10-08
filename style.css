@@ -1634,10 +1634,10 @@ body::-webkit-scrollbar-thumb,
       text-align: center;
     }
 
-    .repertoire-title {
+    .repertoire-page .repertoire-title {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 17.5px;
+      font-size: 17.5px !important;
       font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
@@ -1694,8 +1694,8 @@ body::-webkit-scrollbar-thumb,
         height: 36px;
       }
 
-      .repertoire-title {
-        font-size: 16.25px;
+      .repertoire-page .repertoire-title {
+        font-size: 16.25px !important;
       }
 
       .repertoire-artist {
