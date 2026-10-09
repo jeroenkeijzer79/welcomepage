@@ -1714,19 +1714,3 @@ body::-webkit-scrollbar-thumb,
 .slide-5 { background-image: url('images/slide5.jpeg'); }
 .slide-6 { background-image: url('images/slide6.jpg'); }
 
-
-/* Wit contoursterretje naast de sitetitel: even hoog als de titelregel */
-.site-logo-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.site-logo-star {
-  display: block;
-  width: 1em;
-  height: 1em;
-  flex: 0 0 1em;
-  object-fit: contain;
-  transform: none;
-}
