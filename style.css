@@ -1808,11 +1808,16 @@ body::-webkit-scrollbar-thumb,
   /* Toon het kleine sterretje boven de welkomsttekst op mobiel.
      De desktop-opmaak blijft ongewijzigd. */
   .welcome-star {
-    display: block;
-    top: 27%;
+    display: block !important;
+    position: absolute;
+    top: 34%;
     bottom: auto;
+    left: 50%;
+    z-index: 5;
     width: 38px;
     height: 38px;
+    opacity: 0;
+    animation: welcomeStarBlurIn 1.4s ease-out 5.5s forwards;
   }
   .welcome-star-welcome { display: block; }
 }
