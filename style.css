@@ -1715,17 +1715,18 @@ body::-webkit-scrollbar-thumb,
 .slide-6 { background-image: url('images/slide6.jpg'); }
 
 
-/* Wit contoursterretje naast de sitetitel */
+/* Wit contoursterretje naast de sitetitel: exact de cap-height benaderen */
 .site-logo-name {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
 }
 
 .site-logo-star {
   display: block;
-  width: 1em;
-  height: 1em;
-  flex: 0 0 1em;
-  margin-right: 8px;
+  width: 0.72em;
+  height: 0.72em;
+  flex: 0 0 0.72em;
   object-fit: contain;
+  transform: translateY(-0.02em);
 }
