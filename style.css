@@ -1730,7 +1730,7 @@ body::-webkit-scrollbar-thumb,
   filter: blur(18px);
   transform: translate(-50%, -50%) scale(.35) rotate(0deg);
   pointer-events: none;
-  animation: welcomeStarBehindTitle 4.5s linear 0s forwards;
+  animation: welcomeStarBehindTitle 5.5s linear 0s forwards;
   will-change: transform, opacity, filter;
 }
 
@@ -1743,23 +1743,14 @@ body::-webkit-scrollbar-thumb,
   50% {
     opacity: .15;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(2.175) rotate(90deg);
-  }
-  80% {
-    opacity: .06;
-    filter: blur(0);
-    transform: translate(-50%, -50%) scale(3.27) rotate(160deg);
-  }
-  90% {
-    opacity: .025;
-    filter: blur(0);
-    transform: translate(-50%, -50%) scale(3.635) rotate(175deg);
+    transform: translate(-50%, -50%) scale(2.175) rotate(144deg);
   }
   100% {
     opacity: 0;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(4) rotate(180deg);
+    transform: translate(-50%, -50%) scale(4) rotate(288deg);
   }
+}
 }/* Decoratief contoursterretje boven de welkomsttekst */
 .welcome-star {
   position: absolute;
