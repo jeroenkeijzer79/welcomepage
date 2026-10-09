@@ -1740,20 +1740,20 @@ body::-webkit-scrollbar-thumb,
     filter: blur(18px);
     transform: translate(-50%, -50%) scale(.35) rotate(0deg);
   }
-  50% {
-    opacity: .15;
+  45% {
+    opacity: .165;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(2.175) rotate(180deg);
+    transform: translate(-50%, -50%) scale(2) rotate(90deg);
   }
-  85% {
-    opacity: .045;
+  80% {
+    opacity: .06;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(4) rotate(360deg);
+    transform: translate(-50%, -50%) scale(4) rotate(288deg);
   }
   100% {
     opacity: 0;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(4) rotate(360deg);
+    transform: translate(-50%, -50%) scale(4) rotate(288deg);
   }
 }
 
