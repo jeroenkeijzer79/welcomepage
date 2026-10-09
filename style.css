@@ -1730,7 +1730,7 @@ body::-webkit-scrollbar-thumb,
   filter: blur(18px);
   transform: translate(-50%, -50%) scale(.88);
   pointer-events: none;
-  animation: welcomeStarBehindTitle 1.8s ease-out .8s forwards;
+  animation: welcomeStarBehindTitle 1.8s ease-out 2.4s both;
 }
 
 @keyframes welcomeStarBehindTitle {
@@ -1740,7 +1740,7 @@ body::-webkit-scrollbar-thumb,
     transform: translate(-50%, -50%) scale(.88);
   }
   100% {
-    opacity: .15;
+    opacity: .85;
     filter: blur(0);
     transform: translate(-50%, -50%) scale(1);
   }
@@ -1790,7 +1790,7 @@ body::-webkit-scrollbar-thumb,
   }
   .welcome-star-welcome {
     animation: none;
-    opacity: .15;
+    opacity: .85;
     filter: none;
     transform: translate(-50%, -50%);
   }
