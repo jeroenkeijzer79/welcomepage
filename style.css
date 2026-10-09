@@ -1723,8 +1723,8 @@ body::-webkit-scrollbar-thumb,
   left: 50%;
   z-index: 1;
   display: block;
-  width: clamp(180px, 24vw, 300px);
-  height: clamp(180px, 24vw, 300px);
+  width: 600px;
+  height: 600px;
   object-fit: contain;
   opacity: 0;
   filter: blur(18px);
