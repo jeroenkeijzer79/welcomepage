@@ -1779,7 +1779,21 @@ body::-webkit-scrollbar-thumb,
   }
 }
 
+/* Mobiele hero vult de actuele schermhoogte, ook bij dynamische browserbalken */
 @media (max-width: 767px) {
+  .hero {
+    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  .slideshow,
+  .slide,
+  .hero-overlay {
+    height: 100%;
+  }
+
   .welcome-star,
   .welcome-star-welcome { display: none; }
 }
