@@ -1743,12 +1743,17 @@ body::-webkit-scrollbar-thumb,
   50% {
     opacity: .15;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(2.175) rotate(112.5deg);
+    transform: translate(-50%, -50%) scale(2.175) rotate(90deg);
   }
   80% {
     opacity: .06;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(3.27) rotate(170deg);
+    transform: translate(-50%, -50%) scale(3.27) rotate(160deg);
+  }
+  90% {
+    opacity: .025;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(3.635) rotate(175deg);
   }
   100% {
     opacity: 0;
