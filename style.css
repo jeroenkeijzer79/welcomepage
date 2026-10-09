@@ -1795,8 +1795,8 @@ body::-webkit-scrollbar-thumb,
     height: 100%;
   }
 
-  .welcome-star,
-  .welcome-star-welcome { display: none; }
+  .welcome-star { display: none; }
+  .welcome-star-welcome { display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
