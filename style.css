@@ -1716,36 +1716,41 @@ body::-webkit-scrollbar-thumb,
 
 
 
-/* Grote contourster achter WELKOM: begint onscherp, wordt scherper, groeit en vervaagt */
+/* Grote contourster achter WELKOM: duidelijk zichtbaar tijdens het doorgroeien */
 .welcome-star-welcome {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1;
+  z-index: 2;
   display: block;
   width: 600px;
   height: 600px;
   object-fit: contain;
-  opacity: .3;
-  filter: blur(18px);
-  transform: translate(-50%, -50%) scale(.35);
+  opacity: .65;
+  filter: blur(14px);
+  transform: translate(-50%, -50%) scale(.45);
   pointer-events: none;
-  animation: welcomeStarBehindTitle 7s ease-in-out 0s forwards;
+  animation: welcomeStarBehindTitle 10s ease-in-out 0s forwards;
 }
 
 @keyframes welcomeStarBehindTitle {
   0% {
-    opacity: .3;
-    filter: blur(18px);
-    transform: translate(-50%, -50%) scale(.35);
+    opacity: .65;
+    filter: blur(14px);
+    transform: translate(-50%, -50%) scale(.45);
   }
-  40% {
-    opacity: .3;
+  20% {
+    opacity: .65;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(4);
+    transform: translate(-50%, -50%) scale(1.5);
   }
-  80% {
-    opacity: .3;
+  45% {
+    opacity: .65;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(8);
+  }
+  85% {
+    opacity: .65;
     filter: blur(0);
     transform: translate(-50%, -50%) scale(8);
   }
