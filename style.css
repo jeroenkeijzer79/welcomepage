@@ -1748,7 +1748,7 @@ body::-webkit-scrollbar-thumb,
   80% {
     opacity: .06;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(3.27) rotate(180deg);
+    transform: translate(-50%, -50%) scale(3.27) rotate(170deg);
   }
   100% {
     opacity: 0;
