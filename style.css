@@ -1714,3 +1714,47 @@ body::-webkit-scrollbar-thumb,
 .slide-5 { background-image: url('images/slide5.jpeg'); }
 .slide-6 { background-image: url('images/slide6.jpg'); }
 
+
+
+/* Decoratief contoursterretje tussen de welkomsttekst en de scrollknop */
+.welcome-star {
+  position: absolute;
+  top: 77%;
+  left: 50%;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: welcomeStarBlurIn 1.4s ease-out 6.2s forwards;
+}
+
+@keyframes welcomeStarBlurIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translate(-50%, -50%) scale(.92);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .welcome-star { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-star {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: translate(-50%, -50%);
+  }
+}
