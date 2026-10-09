@@ -1716,15 +1716,15 @@ body::-webkit-scrollbar-thumb,
 
 
 
-/* Decoratief contoursterretje tussen de welkomsttekst en de scrollknop */
+/* Decoratief contoursterretje boven de welkomsttekst */
 .welcome-star {
   position: absolute;
-  top: 77%;
+  top: 27%;
   left: 50%;
   z-index: 2;
   display: block;
-  width: 34px;
-  height: 34px;
+  width: 51px;
+  height: 51px;
   object-fit: contain;
   opacity: 0;
   filter: blur(12px);
