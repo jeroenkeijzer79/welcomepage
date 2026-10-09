@@ -1726,7 +1726,7 @@ body::-webkit-scrollbar-thumb,
   width: 600px;
   height: 600px;
   object-fit: contain;
-  opacity: .4;
+  opacity: .3;
   filter: blur(18px);
   transform: translate(-50%, -50%) scale(.35);
   pointer-events: none;
@@ -1735,11 +1735,11 @@ body::-webkit-scrollbar-thumb,
 
 @keyframes welcomeStarBehindTitle {
   0% {
-    opacity: .4;
+    opacity: .3;
     filter: blur(18px);
     transform: translate(-50%, -50%) scale(.35);
   }
-  35% {
+  50% {
     filter: blur(0);
   }
   100% {
