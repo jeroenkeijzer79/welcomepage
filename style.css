@@ -1715,7 +1715,7 @@ body::-webkit-scrollbar-thumb,
 .slide-6 { background-image: url('images/slide6.jpg'); }
 
 
-/* Wit contoursterretje naast de sitetitel: exact de cap-height benaderen */
+/* Wit contoursterretje naast de sitetitel: even hoog als de titelregel */
 .site-logo-name {
   display: inline-flex;
   align-items: center;
@@ -1724,9 +1724,9 @@ body::-webkit-scrollbar-thumb,
 
 .site-logo-star {
   display: block;
-  width: 0.72em;
-  height: 0.72em;
-  flex: 0 0 0.72em;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
   object-fit: contain;
-  transform: translateY(-0.02em);
+  transform: none;
 }
