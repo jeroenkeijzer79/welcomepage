@@ -1730,7 +1730,7 @@ body::-webkit-scrollbar-thumb,
   filter: blur(18px);
   transform: translate(-50%, -50%) scale(.35) rotate(0deg);
   pointer-events: none;
-  animation: welcomeStarBehindTitle 5.5s linear 0s forwards;
+  animation: welcomeStarBehindTitle 4.5s linear 0s forwards;
   will-change: transform, opacity, filter;
 }
 
