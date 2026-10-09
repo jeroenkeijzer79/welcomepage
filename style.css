@@ -1745,6 +1745,11 @@ body::-webkit-scrollbar-thumb,
     filter: blur(0);
     transform: translate(-50%, -50%) scale(2.175) rotate(180deg);
   }
+  85% {
+    opacity: .045;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(4) rotate(360deg);
+  }
   100% {
     opacity: 0;
     filter: blur(0);
