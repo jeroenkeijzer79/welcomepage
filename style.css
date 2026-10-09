@@ -1726,23 +1726,23 @@ body::-webkit-scrollbar-thumb,
   width: 600px;
   height: 600px;
   object-fit: contain;
-  opacity: .6;
+  opacity: .4;
   filter: blur(0);
   transform: translate(-50%, -50%) scale(.35);
   pointer-events: none;
-  animation: welcomeStarBehindTitle 8s ease-in-out 0s forwards;
+  animation: welcomeStarBehindTitle 5.5s ease-in-out 0s forwards;
 }
 
 @keyframes welcomeStarBehindTitle {
   0% {
-    opacity: .6;
+    opacity: .4;
     filter: blur(0);
     transform: translate(-50%, -50%) scale(.35);
   }
   100% {
     opacity: 0;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(1.8);
+    transform: translate(-50%, -50%) scale(2.3);
   }
 }
 
