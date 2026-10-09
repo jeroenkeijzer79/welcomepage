@@ -1740,23 +1740,12 @@ body::-webkit-scrollbar-thumb,
     filter: blur(18px);
     transform: translate(-50%, -50%) scale(.35) rotate(0deg);
   }
-  45% {
-    opacity: .165;
-    filter: blur(0);
-    transform: translate(-50%, -50%) scale(2) rotate(90deg);
-  }
-  80% {
-    opacity: .06;
-    filter: blur(0);
-    transform: translate(-50%, -50%) scale(4) rotate(288deg);
-  }
   100% {
     opacity: 0;
     filter: blur(0);
     transform: translate(-50%, -50%) scale(4) rotate(288deg);
   }
 }
-
 /* Decoratief contoursterretje boven de welkomsttekst */
 .welcome-star {
   position: absolute;
