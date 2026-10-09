@@ -1716,7 +1716,7 @@ body::-webkit-scrollbar-thumb,
 
 
 
-/* Extra groot contoursterretje achter WELKOM: subtiele blur-animatie */
+/* Grote contourster achter WELKOM: groeit en vervaagt tegelijk vanaf het begin van de titelanimatie */
 .welcome-star-welcome {
   position: absolute;
   top: 50%;
@@ -1726,23 +1726,23 @@ body::-webkit-scrollbar-thumb,
   width: 600px;
   height: 600px;
   object-fit: contain;
-  opacity: 0;
-  filter: blur(18px);
-  transform: translate(-50%, -50%) scale(.88);
+  opacity: .6;
+  filter: blur(0);
+  transform: translate(-50%, -50%) scale(.35);
   pointer-events: none;
-  animation: welcomeStarBehindTitle 1.8s ease-out 2.4s both;
+  animation: welcomeStarBehindTitle 8s ease-in-out 0s forwards;
 }
 
 @keyframes welcomeStarBehindTitle {
   0% {
-    opacity: 0;
-    filter: blur(18px);
-    transform: translate(-50%, -50%) scale(.88);
+    opacity: .6;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(.35);
   }
   100% {
-    opacity: .85;
+    opacity: 0;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1.8);
   }
 }
 
