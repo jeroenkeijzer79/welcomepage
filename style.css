@@ -1812,7 +1812,7 @@ body::-webkit-scrollbar-thumb,
     display: block !important;
     position: absolute;
     /* Zet het sterretje nog iets hoger boven het tekstblok op mobiel. */
-    top: 15%;
+    top: 14%;
     bottom: auto;
     left: 50%;
     z-index: 5;
