@@ -1810,7 +1810,8 @@ body::-webkit-scrollbar-thumb,
   .welcome-star {
     display: block !important;
     position: absolute;
-    top: 34%;
+    /* Zet het sterretje duidelijk boven het tekstblok op mobiel. */
+    top: 18%;
     bottom: auto;
     left: 50%;
     z-index: 5;
