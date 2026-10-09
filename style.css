@@ -811,7 +811,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   /* Uitgevulde tekst op mobiel, met woordafbreking om grote gaten te voorkomen. */
   .about-inner p {
     text-align: justify;
-    text-align-last: left;
+    text-align-last: center;
     text-justify: inter-word;
     hyphens: auto;
     word-spacing: normal;
@@ -1103,6 +1103,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   font-weight: 200;
   line-height: 2.3;
   text-align: justify;
+  text-align-last: center;
 }
 
 .over-page .over-person-content {
