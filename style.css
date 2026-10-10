@@ -586,7 +586,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #d0d0d0;
-  border-radius: 3px;
+  border-radius: 8px;
   background: #fff;
   color: #222;
   font: inherit;
@@ -611,7 +611,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   justify-self: center;
   padding: 10px 24px;
   border: 1px solid #de5252;
-  border-radius: 3px;
+  border-radius: 8px;
   background: #de5252;
   color: #fff;
   cursor: pointer;
@@ -901,7 +901,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   margin: 0;
   padding: 14px 16px 10px;
   border: 1px solid #d0d0d0;
-  border-radius: 3px;
+  border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px 24px;
