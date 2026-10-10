@@ -1596,6 +1596,11 @@ body::-webkit-scrollbar-thumb,
       line-height: 1.9;
     }
 
+    .repertoire-intro p {
+      text-align: justify;
+      text-align-last: center;
+    }
+
     .repertoire-intro a {
       color: #222;
       text-decoration: underline;
