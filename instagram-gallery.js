@@ -2,7 +2,7 @@
   'use strict';
 
   const profileUrl = 'https://www.instagram.com/jeroenirene/';
-  const feedUrl = new URL('/instagram-feed.json?v=2', window.location.origin).href;
+  const feedUrl = new URL('/instagram-feed.json?v=3', window.location.origin).href;
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[char]);
@@ -13,7 +13,7 @@
       return;
     }
 
-    gallery.innerHTML = posts.map((post) => {
+    const items = posts.map((post) => {
       const firstImage = Array.isArray(post.images) ? post.images[0] : null;
       if (!firstImage || !firstImage.src) return '';
       const caption = (post.caption || 'Jeroen & Irene op Instagram').trim();
@@ -22,18 +22,17 @@
         ? new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }).format(date)
         : '';
       const mediaCount = Array.isArray(post.images) && post.images.length > 1
-        ? '<span class="instagram-gallery-count" aria-label="' + post.images.length + ' foto\'s">+' + (post.images.length - 1) + '</span>'
+        ? '<span class="instagram-gallery-count" aria-label="' + post.images.length + ' afbeeldingen">+' + (post.images.length - 1) + '</span>'
         : '';
+      const imageUrl = new URL(firstImage.src, window.location.origin + '/').href;
       return '<a class="instagram-gallery-item" href="' + escapeHtml(post.permalink || profileUrl) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(caption || 'Bekijk Instagram-bericht') + '">' +
-        '<img src="' + escapeHtml(new URL(firstImage.src, window.location.origin + '/').href) + '" alt="' + escapeHtml(firstImage.alt || caption || 'Foto van Jeroen & Irene') + '" loading="lazy" decoding="async">' +
+        '<img src="' + escapeHtml(imageUrl) + '" alt="' + escapeHtml(firstImage.alt || caption || 'Foto van Jeroen & Irene') + '" loading="lazy" decoding="async">' +
         mediaCount +
         '<span class="instagram-gallery-overlay"><span>' + escapeHtml(dateLabel) + '</span><span class="instagram-gallery-caption">' + escapeHtml(caption || 'Bekijk bericht op Instagram') + '</span></span>' +
         '</a>';
     }).join('');
 
-    if (!gallery.innerHTML.trim()) {
-      gallery.innerHTML = '<p class="instagram-gallery-status">Er zijn momenteel geen foto\'s beschikbaar. Bekijk <a href="' + profileUrl + '" target="_blank" rel="noopener noreferrer">@jeroenirene op Instagram</a>.</p>';
-    }
+    gallery.innerHTML = items || '<p class="instagram-gallery-status">Er zijn momenteel geen foto’s beschikbaar. Bekijk <a href="' + profileUrl + '" target="_blank" rel="noopener noreferrer">@jeroenirene op Instagram</a>.</p>';
   };
 
   const initializeGallery = (gallery) => {
@@ -53,8 +52,6 @@
 
   const scan = () => document.querySelectorAll('[data-instagram-gallery]').forEach(initializeGallery);
   scan();
-
-  // Werkt ook wanneer de galerij later via een contentfragment aan de pagina wordt toegevoegd.
   const observer = new MutationObserver(scan);
   observer.observe(document.documentElement, { childList: true, subtree: true });
 })();
