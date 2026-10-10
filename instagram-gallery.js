@@ -2,7 +2,7 @@
   'use strict';
 
   const profileUrl = 'https://www.instagram.com/jeroenirene/';
-  const feedUrl = new URL('/instagram-feed.json?v=3', window.location.origin).href;
+  const feedUrl = new URL('/instagram-feed.json?v=4', window.location.origin).href;
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[char]);
