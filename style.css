@@ -1645,6 +1645,14 @@ body::-webkit-scrollbar-thumb,
       text-align: center;
     }
 
+    .repertoire-track-text {
+      height: 40px;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .repertoire-page .repertoire-title {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -1656,7 +1664,7 @@ body::-webkit-scrollbar-thumb,
     }
 
     .repertoire-artist {
-      margin: 2px 0 0;
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 13.75px;
       opacity: .6;
@@ -1702,6 +1710,10 @@ body::-webkit-scrollbar-thumb,
 
       .repertoire-art {
         width: 36px;
+        height: 36px;
+      }
+
+      .repertoire-track-text {
         height: 36px;
       }
 
