@@ -1411,6 +1411,8 @@ body::-webkit-scrollbar-thumb,
 
     .agenda-intro p {
       margin: 0 0 22px;
+      text-align: justify;
+      text-align-last: center;
     }
 
     .agenda-list-wrap { width: min(100%, 700px); margin: 0 auto; font-family: Arial, Helvetica, sans-serif; }
