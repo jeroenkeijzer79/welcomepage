@@ -2069,3 +2069,54 @@ html.home-animations-played .scroll-down {
   opacity: 1 !important;
   filter: none !important;
 }
+
+
+/* Eenvoudige fotonavigatie op de welkomstpagina: verschijnt bij hover aan de zijkanten. */
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 112px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  color: rgba(255, 255, 255, .92);
+  background: rgba(0, 0, 0, .12);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity .22s ease, background-color .22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.slide-nav-prev { left: 0; }
+.slide-nav-next { right: 0; }
+.slide-nav span {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero:has(.slide-nav:hover) .slide-nav,
+  .slide-nav:hover,
+  .slide-nav:focus-visible {
+    opacity: 1;
+  }
+}
+.slide-nav:hover { background: rgba(0, 0, 0, .28); }
+.slide-nav:focus-visible {
+  opacity: 1;
+  outline: 2px solid rgba(255, 255, 255, .9);
+  outline-offset: -5px;
+}
+@media (hover: none), (pointer: coarse) {
+  .slide-nav { width: 48px; height: 76px; opacity: .65; background: rgba(0,0,0,.16); }
+  .slide-nav span { font-size: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide-nav { transition: none; }
+}
