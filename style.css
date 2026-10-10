@@ -1591,7 +1591,7 @@ body::-webkit-scrollbar-thumb,
     }
 
     .repertoire-intro {
-      width: min(100%, 800px);
+      width: min(100%, 770px);
       margin: 0 auto 34px;
       font-size: 18px;
       font-weight: 300;
