@@ -112,7 +112,7 @@
               : '<div class="repertoire-art"></div>';
 
             return '<article class="repertoire-track" role="link" tabindex="0" data-url="' + esc(track.url || "") + '">' +
-              '<div class="repertoire-number">' + String(index + 1).padStart(2, "0") + '</div>' +
+              '<div class="repertoire-number">' + String(index + 1) + '</div>' +
               image +
               '<div class="repertoire-track-text">' +
                 '<p class="repertoire-title">' + esc(track.title) + '</p>' +
