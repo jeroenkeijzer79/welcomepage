@@ -1838,3 +1838,91 @@ body::-webkit-scrollbar-thumb,
     transform: translate(-50%, -50%);
   }
 }
+
+
+/* Instagram-fotogalerij — lokale, geoptimaliseerde afbeeldingen */
+.instagram-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+.instagram-gallery-item {
+  position: relative;
+  display: block;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f3f3f3;
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+}
+.instagram-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s ease, opacity .35s ease;
+}
+.instagram-gallery-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 35px 12px 12px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,.72));
+  opacity: 0;
+  transition: opacity .25s ease;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.instagram-gallery-caption {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.instagram-gallery-item:hover img,
+.instagram-gallery-item:focus-visible img { transform: scale(1.045); }
+.instagram-gallery-item:hover .instagram-gallery-overlay,
+.instagram-gallery-item:focus-visible .instagram-gallery-overlay { opacity: 1; }
+.instagram-gallery-item:focus-visible { outline: 2px solid #de5252; outline-offset: 3px; }
+.instagram-gallery-count {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 7px;
+  place-items: center;
+  border-radius: 20px;
+  background: rgba(0,0,0,.66);
+  color: #fff;
+  font-size: 12px;
+}
+.instagram-gallery-status {
+  grid-column: 1 / -1;
+  margin: 20px auto;
+  color: #666;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.instagram-gallery-status a,
+.instagram-fallback a {
+  color: #222;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .instagram-gallery { gap: 5px; }
+  .instagram-gallery-overlay { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .instagram-gallery-item img,
+  .instagram-gallery-overlay { transition: none; }
+}
