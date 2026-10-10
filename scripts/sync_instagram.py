@@ -31,10 +31,17 @@ def api_get(url: str, params: dict | None = None) -> dict:
     request_params = dict(params or {})
     request_params.setdefault("access_token", TOKEN)
     response = SESSION.get(url, params=request_params, timeout=TIMEOUT)
-    response.raise_for_status()
-    payload = response.json()
-    if isinstance(payload, dict) and payload.get("error"):
-        raise RuntimeError(f"Instagram API error: {payload['error'].get('message', 'unknown error')}")
+    try:
+        payload = response.json()
+    except ValueError:
+        payload = {}
+    if not response.ok or (isinstance(payload, dict) and payload.get("error")):
+        error = payload.get("error", {}) if isinstance(payload, dict) else {}
+        message = error.get("message") or response.reason or "unknown error"
+        code = error.get("code")
+        error_type = error.get("type")
+        details = f" (type={error_type}, code={code})" if error_type or code else ""
+        raise RuntimeError(f"Instagram API request failed with HTTP {response.status_code}: {message}{details}")
     return payload
 
 
