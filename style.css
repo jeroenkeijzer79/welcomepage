@@ -1727,7 +1727,7 @@ body::-webkit-scrollbar-thumb,
 
 
 
-/* Grote contourster achter WELKOM: draait en groeit gelijkmatig door terwijl hij vervaagt */
+/* Grote contourster achter WELKOM: groeit gelijkmatig terwijl hij vervaagt, zonder rotatie */
 .welcome-star-welcome {
   position: absolute;
   top: 50%;
@@ -1739,7 +1739,7 @@ body::-webkit-scrollbar-thumb,
   object-fit: contain;
   opacity: .3;
   filter: blur(18px);
-  transform: translate(-50%, -50%) scale(.35) rotate(0deg);
+  transform: translate(-50%, -50%) scale(.35);
   pointer-events: none;
   animation: welcomeStarBehindTitle 5.5s linear 0s forwards;
   will-change: transform, opacity, filter;
@@ -1754,12 +1754,12 @@ body::-webkit-scrollbar-thumb,
   50% {
     opacity: .15;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(2.175) rotate(144deg);
+    transform: translate(-50%, -50%) scale(2.175);
   }
   100% {
     opacity: 0;
     filter: blur(0);
-    transform: translate(-50%, -50%) scale(4) rotate(288deg);
+    transform: translate(-50%, -50%) scale(4);
   }
 }/* Decoratief contoursterretje boven de welkomsttekst */
 .welcome-star {
