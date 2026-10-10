@@ -196,18 +196,24 @@
   loadContent();
 
   const slides = [...document.querySelectorAll('.slide')];
+  const previousSlideButton = document.querySelector('.slide-nav-prev');
+  const nextSlideButton = document.querySelector('.slide-nav-next');
+  let currentIndex = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
+
+  const showSlide = (index) => {
+    if (slides.length < 2) return;
+    currentIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle('is-active', slideIndex === currentIndex);
+    });
+  };
 
   if (slides.length > 1) {
-    let currentIndex = 0;
+    previousSlideButton?.addEventListener('click', () => showSlide(currentIndex - 1));
+    nextSlideButton?.addEventListener('click', () => showSlide(currentIndex + 1));
 
     setInterval(() => {
-      const current = slides[currentIndex];
-      const nextIndex = (currentIndex + 1) % slides.length;
-      const next = slides[nextIndex];
-
-      next.classList.add('is-active');
-      current.classList.remove('is-active');
-      currentIndex = nextIndex;
+      showSlide(currentIndex + 1);
     }, 10000);
   }
 
