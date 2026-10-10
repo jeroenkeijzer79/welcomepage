@@ -1983,6 +1983,37 @@ body::-webkit-scrollbar-thumb,
 }
 
 
+
+/* DE OVERIGE INHOUDSPAGINA'S: dezelfde blur-in als Foto & Video */
+.repertoire-inner > .repertoire-intro,
+.repertoire-inner > .repertoire-list,
+.request-section > #request-content,
+.contact-inner > p,
+.contact-inner > .contact-form,
+.agenda-inner > .agenda-intro,
+.agenda-inner > .agenda-list-wrap {
+  animation: instagramContentBlurIn 1s ease-out both;
+}
+
+.repertoire-inner > .repertoire-list { animation-delay: .12s; }
+.contact-inner > .contact-form { animation-delay: .12s; }
+.agenda-inner > .agenda-list-wrap { animation-delay: .12s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .repertoire-inner > .repertoire-intro,
+  .repertoire-inner > .repertoire-list,
+  .request-section > #request-content,
+  .contact-inner > p,
+  .contact-inner > .contact-form,
+  .agenda-inner > .agenda-intro,
+  .agenda-inner > .agenda-list-wrap {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
 /* Bij terugkeer naar de welkomstpagina blijven de animaties in hun eindtoestand. */
 html.home-animations-played .welcome-title {
   animation: none !important;
