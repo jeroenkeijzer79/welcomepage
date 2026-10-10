@@ -28,7 +28,9 @@ SESSION.headers.update({"User-Agent": "JeroenIreneWebsite/1.0 (+https://jeroenir
 
 
 def api_get(url: str, params: dict | None = None) -> dict:
-    response = SESSION.get(url, params=params, timeout=TIMEOUT)
+    request_params = dict(params or {})
+    request_params.setdefault("access_token", TOKEN)
+    response = SESSION.get(url, params=request_params, timeout=TIMEOUT)
     response.raise_for_status()
     payload = response.json()
     if isinstance(payload, dict) and payload.get("error"):
