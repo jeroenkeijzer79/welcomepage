@@ -1619,8 +1619,8 @@ body::-webkit-scrollbar-thumb,
 
     .repertoire-track {
       display: grid;
-      grid-template-columns: 56px 42px minmax(0, 1fr);
-      column-gap: 0;
+      grid-template-columns: 56px 44px minmax(0, 1fr);
+      column-gap: 8px;
       align-items: center;
       padding: 0;
       background: #F5F5F5;
@@ -1653,9 +1653,15 @@ body::-webkit-scrollbar-thumb,
 
     .repertoire-number {
       grid-column: 2;
+      justify-self: center;
+      padding: 2px 5px;
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .38);
       font-size: 19.5px;
       font-weight: 700;
-      opacity: .45;
+      line-height: 1.15;
+      opacity: .65;
       text-align: center;
     }
 
@@ -1718,8 +1724,8 @@ body::-webkit-scrollbar-thumb,
 
     @media (max-width: 600px) {
       .repertoire-track {
-        grid-template-columns: 48px 36px minmax(0, 1fr);
-        column-gap: 0;
+        grid-template-columns: 48px 40px minmax(0, 1fr);
+        column-gap: 6px;
         padding: 0;
       }
 
