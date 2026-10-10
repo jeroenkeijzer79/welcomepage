@@ -1030,7 +1030,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   opacity: 0;
   filter: blur(12px);
   transform: scale(1.02);
-  animation: overTextFadeIn 9s ease-in-out forwards;
+  animation: overTextFadeIn 1s ease-out forwards;
 }
 
 @keyframes overTextFadeIn {
@@ -1039,7 +1039,7 @@ body:not(.home-page) .nav-dropdown > button::after {
     filter: blur(12px);
     transform: scale(1.02);
   }
-  22.2% {
+  100% {
     opacity: 1;
     filter: blur(0);
     transform: scale(1);
@@ -1263,7 +1263,7 @@ body:not(.home-page) .nav-dropdown > button::after {
   }
 
   .over-page .over-person-inner {
-    animation: overTextFadeIn 9s ease-in-out forwards;
+    animation: overTextFadeIn 1s ease-out forwards;
     opacity: 0;
     filter: blur(12px);
     transform: scale(1.02);
