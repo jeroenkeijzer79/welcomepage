@@ -60,6 +60,14 @@
   <meta name="twitter:image" content="https://jeroenirene.nl/images/jeroen.png">
   <title>Jeroen & Irene | Zang & Piano</title>
   <script>
+    // Speel de welkomstanimaties slechts één keer per browsersessie af.
+    try {
+      if (sessionStorage.getItem('homeAnimationsPlayed') === '1') {
+        document.documentElement.classList.add('home-animations-played');
+      } else if (window.location.pathname === '/' || window.location.pathname === '' || window.location.pathname.endsWith('/index.html')) {
+        sessionStorage.setItem('homeAnimationsPlayed', '1');
+      }
+    } catch (_) {}
     if (window.location.pathname.endsWith('/index.html')) {
       window.history.replaceState({}, document.title, window.location.pathname.slice(0, -10) || '/');
     }
