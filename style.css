@@ -1610,7 +1610,8 @@ body::-webkit-scrollbar-thumb,
     }
 
     .repertoire-list {
-      width: min(100%, 800px);
+      width: min(100%, 770px);
+      max-width: 770px;
       margin: 0 auto;
       display: grid;
       gap: 6px;
