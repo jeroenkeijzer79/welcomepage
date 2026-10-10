@@ -1926,3 +1926,46 @@ body::-webkit-scrollbar-thumb,
   .instagram-gallery-item img,
   .instagram-gallery-overlay { transition: none; }
 }
+
+
+/* FOTO & VIDEO: inhoud verschijnt in één seconde van onscherp naar scherp */
+.instagram-inner > h1,
+.instagram-inner > .instagram-intro,
+.instagram-inner > .instagram-gallery,
+.instagram-inner > .instagram-fallback {
+  animation: instagramContentBlurIn 1s ease-out both;
+}
+
+.instagram-inner > .instagram-intro { animation-delay: .08s; }
+.instagram-inner > .instagram-gallery { animation-delay: .16s; }
+.instagram-inner > .instagram-fallback { animation-delay: .24s; }
+
+.instagram-gallery-item {
+  animation: instagramContentBlurIn 1s ease-out both;
+}
+
+@keyframes instagramContentBlurIn {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .instagram-inner > h1,
+  .instagram-inner > .instagram-intro,
+  .instagram-inner > .instagram-gallery,
+  .instagram-inner > .instagram-fallback,
+  .instagram-gallery-item {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
