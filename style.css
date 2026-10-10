@@ -582,12 +582,15 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.request-form input:not([type="radio"]):not([type="checkbox"]),
+.request-form textarea,
+.request-form select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #e8e8e8;
   border-radius: 8px;
-  background: #fff;
+  background: #F5F5F5;
   color: #222;
   font: inherit;
   font-size: 16px;
@@ -600,8 +603,11 @@ body:not(.home-page) .nav-dropdown > button::after {
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #888;
+.contact-form textarea:focus,
+.request-form input:not([type="radio"]):not([type="checkbox"]):focus,
+.request-form textarea:focus,
+.request-form select:focus {
+  border-color: #dedede;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, .06);
 }
 
@@ -610,10 +616,10 @@ body:not(.home-page) .nav-dropdown > button::after {
 .request-form input[type="submit"] {
   justify-self: center;
   padding: 10px 24px;
-  border: 1px solid #de5252;
+  border: 1px solid #e8e8e8;
   border-radius: 8px;
-  background: #de5252;
-  color: #fff;
+  background: #F5F5F5;
+  color: #444;
   cursor: pointer;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 15px;
@@ -623,9 +629,9 @@ body:not(.home-page) .nav-dropdown > button::after {
 .contact-form button:hover,
 .request-form button:hover,
 .request-form input[type="submit"]:hover {
-  background: #de5252;
-  border-color: #de5252;
-  opacity: .82;
+  background: #E9E9E9;
+  border-color: #dedede;
+  opacity: 1;
 }
 
 .social-links {
@@ -900,8 +906,9 @@ body:not(.home-page) .nav-dropdown > button::after {
 .request-options {
   margin: 0;
   padding: 14px 16px 10px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #e8e8e8;
   border-radius: 8px;
+  background: #F5F5F5;
   display: flex;
   flex-wrap: wrap;
   gap: 12px 24px;
