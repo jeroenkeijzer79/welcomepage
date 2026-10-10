@@ -1969,3 +1969,39 @@ body::-webkit-scrollbar-thumb,
     transform: none;
   }
 }
+
+
+/* Bij terugkeer naar de welkomstpagina blijven de animaties in hun eindtoestand. */
+html.home-animations-played .welcome-title {
+  animation: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: none !important;
+  transform: none !important;
+}
+html.home-animations-played .welcome-intro {
+  animation: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  transform: none !important;
+}
+html.home-animations-played .welcome-star-welcome {
+  animation: none !important;
+  opacity: 0 !important;
+  filter: none !important;
+  transform: translate(-50%, -50%) scale(4) !important;
+}
+html.home-animations-played .welcome-star {
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+html.home-animations-played .slide {
+  animation: none !important;
+}
+html.home-animations-played .scroll-down {
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
