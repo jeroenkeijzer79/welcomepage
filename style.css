@@ -605,22 +605,27 @@ body:not(.home-page) .nav-dropdown > button::after {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, .06);
 }
 
-.contact-form button {
+.contact-form button,
+.request-form button,
+.request-form input[type="submit"] {
   justify-self: center;
   padding: 10px 24px;
-  border: 1px solid #888;
+  border: 1px solid #de5252;
   border-radius: 3px;
-  background: #fff;
-  color: #444;
+  background: #de5252;
+  color: #fff;
   cursor: pointer;
   font-family: "Bai Jamjuree", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  transition: background .2s ease, color .2s ease;
+  transition: background .2s ease, border-color .2s ease, opacity .2s ease;
 }
 
-.contact-form button:hover {
-  background: #444;
-  color: #fff;
+.contact-form button:hover,
+.request-form button:hover,
+.request-form input[type="submit"]:hover {
+  background: #de5252;
+  border-color: #de5252;
+  opacity: .82;
 }
 
 .social-links {
