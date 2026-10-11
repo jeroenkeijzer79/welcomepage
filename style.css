@@ -2065,6 +2065,30 @@ body::-webkit-scrollbar-thumb,
 .contact-inner > .contact-form { animation-delay: .12s; }
 .agenda-inner > .agenda-list-wrap { animation-delay: .12s; }
 
+/* Agenda-items worden asynchroon geladen; animeer daarom de kaarten zelf. */
+.agenda-page .event {
+  animation: agendaEventBlurIn 1s ease-out both;
+}
+.agenda-page .event-section-list .event:nth-child(1) { animation-delay: .04s; }
+.agenda-page .event-section-list .event:nth-child(2) { animation-delay: .10s; }
+.agenda-page .event-section-list .event:nth-child(3) { animation-delay: .16s; }
+.agenda-page .event-section-list .event:nth-child(4) { animation-delay: .22s; }
+.agenda-page .event-section-list .event:nth-child(5) { animation-delay: .28s; }
+.agenda-page .event-section-list .event:nth-child(6) { animation-delay: .34s; }
+.agenda-page .event-section-list .event:nth-child(7) { animation-delay: .40s; }
+.agenda-page .event-section-list .event:nth-child(8) { animation-delay: .46s; }
+
+@keyframes agendaEventBlurIn {
+  from {
+    filter: blur(10px);
+    transform: translateY(4px);
+  }
+  to {
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .repertoire-inner > .repertoire-intro,
   .repertoire-inner > .repertoire-list,
