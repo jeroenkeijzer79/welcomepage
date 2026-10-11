@@ -2045,12 +2045,12 @@ body::-webkit-scrollbar-thumb,
   animation: instagramContentBlurIn 1s ease-out both;
 }
 .request-inner > p:nth-of-type(2) { animation-delay: .08s; }
+/* De derde alinea blijft altijd scherp; voorkom dat een vastgelopen animatie blur vasthoudt. */
 .request-inner > p:nth-of-type(3) {
-  animation: requestThirdParagraphBlurIn 1s ease-out .16s both !important;
-}
-@keyframes requestThirdParagraphBlurIn {
-  from { opacity: 0; filter: blur(12px); transform: translateY(4px); }
-  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
 }
 .request-inner > p:nth-of-type(4) { animation-delay: .24s; }
 .request-inner > .request-form {
