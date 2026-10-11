@@ -1638,7 +1638,7 @@ body::-webkit-scrollbar-thumb,
     .repertoire-track {
       display: grid;
       grid-template-columns: 56px minmax(0, 1fr);
-      column-gap: 8px;
+      column-gap: 18px;
       align-items: center;
       padding: 0;
       background: #F5F5F5;
@@ -1729,7 +1729,7 @@ body::-webkit-scrollbar-thumb,
     @media (max-width: 600px) {
       .repertoire-track {
         grid-template-columns: 48px minmax(0, 1fr);
-        column-gap: 6px;
+        column-gap: 16px;
         padding: 0;
       }
 
