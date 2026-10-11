@@ -2057,6 +2057,17 @@ body::-webkit-scrollbar-thumb,
   animation: instagramContentBlurIn 1s ease-out .32s both;
 }
 
+/* Aanvraag: geen blur op de derde alinea of op de bovenliggende container.
+   Een filter op een ouder vervaagt namelijk ook tekst die zelf scherp is. */
+.request-page #request-content,
+.request-page #request-content .request-inner,
+.request-page #request-content .request-inner > p:nth-of-type(3) {
+  animation: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 .repertoire-inner > .repertoire-intro,
 .repertoire-inner > .repertoire-list,
 .request-section > #request-content,
