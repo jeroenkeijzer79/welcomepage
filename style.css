@@ -1190,8 +1190,12 @@ body:not(.home-page) .nav-dropdown > button::after {
 .over-page .over-scroll-up {
   opacity: 0;
   filter: blur(12px);
-  animation: scrollButtonBlurIn 1.5s ease-out 2s forwards;
   pointer-events: auto;
+}
+
+.over-page .over-scroll-down.is-in-view,
+.over-page .over-scroll-up.is-in-view {
+  animation: scrollButtonBlurIn 1.5s ease-out forwards;
 }
 
 .over-page .over-scroll-down {
