@@ -1796,6 +1796,7 @@ body::-webkit-scrollbar-thumb,
 /* Grote contourster achter WELKOM: groeit gelijkmatig terwijl hij vervaagt, zonder rotatie */
 .welcome-star-welcome {
   position: absolute;
+  overflow: visible;
   top: 50%;
   left: 50%;
   z-index: 1;
