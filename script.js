@@ -90,30 +90,12 @@
   updateLogoTaglineWidth();
   window.addEventListener('resize', updateLogoTaglineWidth);
 
-  // Google Analytics 4
-  // Vervang deze placeholder door het Measurement ID uit Google Analytics (bijv. G-ABC1234567).
-  const GA_MEASUREMENT_ID = 'G-SDLFLFQLH1';
-
-  const initAnalytics = () => {
-    if (!/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
-
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
-    document.head.appendChild(script);
-  };
-
+  // Google Analytics wordt per HTML-pagina geladen met Measurement ID G-2QPNYJ1H9B.
+  // Deze functie gebruikt de bestaande gtag-initialisatie en laadt geen tweede tag.
   const trackEvent = (name, parameters = {}) => {
     if (typeof window.gtag !== 'function') return;
     window.gtag('event', name, parameters);
   };
-
-  initAnalytics();
 
   // Meet belangrijke navigatie- en conversieklikken.
   document.addEventListener('click', (event) => {
