@@ -277,6 +277,23 @@
     updateHeader();
   }
 
+  // Start de scrollknopanimatie pas wanneer de betreffende knop in beeld komt.
+  const overScrollButtons = document.querySelectorAll('.over-page [data-scroll-target]');
+  if ('IntersectionObserver' in window && overScrollButtons.length) {
+    const overScrollButtonObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio <= 0) return;
+        entry.target.classList.add('is-in-view');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.01 });
+
+    overScrollButtons.forEach((button) => overScrollButtonObserver.observe(button));
+  } else {
+    // Terugval voor browsers zonder IntersectionObserver.
+    overScrollButtons.forEach((button) => button.classList.add('is-in-view'));
+  }
+
   // Scrollknoppen op de Over-pagina.
   document.querySelectorAll('[data-scroll-target]').forEach((button) => {
     button.addEventListener('click', (event) => {
